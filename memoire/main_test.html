@@ -6,6 +6,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>main_test</title>
   <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -84,28 +240,7 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
-  <link rel="stylesheet" href="style.css" />
+  </style>
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -5677,400 +5812,6 @@ class="sourceCode GLSL"><code class="sourceCode glsl"><span id="cb72-1"><a href=
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>Exemple <span class="op">:</span> <span class="bn">0xE0</span> <span class="bn">0x00</span> <span class="bn">0x40</span></span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="bn">0xE0</span> <span class="op">(</span><span class="dv">1110</span> <span class="dv">0000</span><span class="op">)</span> <span class="op">:</span> Pitch Bend sur le canal MIDI <span class="dv">1</span></span>
 <span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="bn">0x00</span> <span class="bn">0x40</span> <span class="op">(</span><span class="dv">0000</span> <span class="dv">0000</span> <span class="dv">0100</span> <span class="dv">0000</span><span class="op">)</span> <span class="op">:</span> Valeur du pitch <span class="fu">bend</span> <span class="op">(</span>vers le haut<span class="op">)</span></span></code></pre></div>
-<div id="refs" class="references csl-bib-body hanging-indent"
-data-entry-spacing="0" role="list">
-<div id="ref-AlgorithmicComposition2023" class="csl-entry"
-role="listitem">
-<span>“Algorithmic Composition.”</span> 2023. <em>Wikipedia</em>,
-August.
-</div>
-<div id="ref-andreattaInformatiqueMusicaleInformatique2019"
-class="csl-entry" role="listitem">
-Andreatta, Moreno, Gérard Assayag, Myriam Desainte-Catherine, Jean-Louis
-Giavitto, Mathieu Giraud, Yann Orlarey, and Anne Sèdes. 2019.
-<span>“L’informatique Musicale : Informatique Et Musique En
-Interdisciplinarit<span>é</span>.”</span> In <em>Journ<span>é</span>es
-d’<span>Informatique Musicale</span> (<span>JIM</span> 2019)</em>.
-Bayonne, France.
-</div>
-<div id="ref-bisqwitHowCreateMusic2010" class="csl-entry"
-role="listitem">
-Bisqwit. 2010. <span>“How to Create Music in <span>C</span>++ from
-Scratch (<span>MIDI</span> File Format) / <span>C</span>++11 Variadic
-Templates Example.”</span>
-</div>
-<div id="ref-blackwellLiveCodingUser2022" class="csl-entry"
-role="listitem">
-Blackwell, Alan, Emma Cocker, Geoff Cox, Alex McLean, and Thor
-Magnusson. 2022. <em>Live Coding: A User’s Manual</em>. Software
-Studies. Cambridge, Massachusetts London: The MIT Press.
-</div>
-<div id="ref-blackwellProgrammingLanguageMusical2005" class="csl-entry"
-role="listitem">
-Blackwell, Alan, and Nick Collins. 2005. <span>“The <span>Programming
-Language</span> as a <span>Musical Instrument</span>.”</span>
-</div>
-<div id="ref-bouvierShadersDynamiquesPour" class="csl-entry"
-role="listitem">
-Bouvier, Fabienne. n.d. <span>“<span>Les shaders dynamiques pour
-l’expressivit<span>é</span> artistique</span>.”</span>
-</div>
-<div id="ref-brownAacellPracticeApproach2007" class="csl-entry"
-role="listitem">
-Brown, Andrew R., and Andrew C. Sorensen. 2007. <span>“Aa-Cell in
-Practice : An Approach to Musical Live Coding.”</span> In
-<em>International <span>Computer Music Conference</span></em>, 292–99.
-</div>
-<div id="ref-carlssonForgottenPioneersCreative2019" class="csl-entry"
-role="listitem">
-Carlsson, Anders. 2019. <span>“The <span>Forgotten Pioneers</span> of
-<span>Creative Hacking</span> and <span>Social Networking</span>–
-<span>Introducing</span> the <span>Demoscene</span>,”</span> June.
-</div>
-<div id="ref-clintonMusicImprovisationPython" class="csl-entry"
-role="listitem">
-Clinton, William. n.d. <span>“Music Improvisation in <span>Python</span>
-Using a <span>Markov Chain Algorithm</span>.”</span>
-</div>
-<div id="ref-collinsPacManPopMusic2008" class="csl-entry"
-role="listitem">
-Collins, Karen, ed. 2008. <em>From <span>Pac-Man</span> to Pop Music:
-Interactive Audio in Games and New Media</em>. Ashgate Popular and Folk
-Music Series. Aldershot, Hampshidre, England ; Burlington, VT: Ashgate.
-</div>
-<div id="ref-collinsAnalysisGenerativeMusic2008" class="csl-entry"
-role="listitem">
-Collins, Nick. 2008. <span>“The <span>Analysis</span> of
-<span>Generative Music Programs</span>.”</span> <em>Organised Sound</em>
-13 (3): 237–48. <a
-href="https://doi.org/10.1017/S1355771808000332">https://doi.org/10.1017/S1355771808000332</a>.
-</div>
-<div id="ref-collinsLiveCodingLaptop2003" class="csl-entry"
-role="listitem">
-Collins, Nick, Alex McLEAN, Julian Rohrhuber, and Adrian Ward. 2003.
-<span>“<span>Live coding in laptop performance</span>.”</span>
-<em>Organised Sound</em> 8 (3): 321–30. <a
-href="https://doi.org/10.1017/S135577180300030X">https://doi.org/10.1017/S135577180300030X</a>.
-</div>
-<div id="ref-collopyVisualMusicVisual1999" class="csl-entry"
-role="listitem">
-Collopy, F., R. M. Fuhrer, and D. Jameson. 1999. <span>“Visual Music in
-a Visual Programming Language.”</span> In <em>Proceedings 1999
-<span>IEEE Symposium</span> on <span>Visual Languages</span></em>,
-111–18. <a
-href="https://doi.org/10.1109/VL.1999.795882">https://doi.org/10.1109/VL.1999.795882</a>.
-</div>
-<div id="ref-colubriGLSLShaders2023" class="csl-entry" role="listitem">
-Colubri, Andrés. 2023. <span>“<span>GLSL Shaders</span>.”</span> In
-<em>Processing for <span>Android</span>: <span>Create Mobile</span>,
-<span class="nocase">Sensor-aware</span>, and <span>XR Applications
-Using Processing</span></em>, edited by Andrés Colubri, 269–301.
-Berkeley, CA: Apress. <a
-href="https://doi.org/10.1007/978-1-4842-9585-4_15">https://doi.org/10.1007/978-1-4842-9585-4_15</a>.
-</div>
-<div id="ref-comninosMathematicalComputerProgramming2006"
-class="csl-entry" role="listitem">
-Comninos, Peter. 2006. <em>Mathematical and <span>Computer Programming
-Techniques</span> for <span>Computer Graphics</span></em>. London:
-Springer London. <a
-href="https://doi.org/10.1007/978-1-84628-292-8">https://doi.org/10.1007/978-1-84628-292-8</a>.
-</div>
-<div id="ref-copeAlgorithmicMusicComposition2015" class="csl-entry"
-role="listitem">
-Cope, David. 2015. <span>“Algorithmic <span>Music
-Composition</span>.”</span> In <em>Patterns of
-<span>Intuition</span></em>, edited by Gerhard Nierhaus, 405–16.
-Dordrecht: Springer Netherlands. <a
-href="https://doi.org/10.1007/978-94-017-9561-6_19">https://doi.org/10.1007/978-94-017-9561-6_19</a>.
-</div>
-<div id="ref-cruzPsenoughTeach_yourself_demoscene_in_14_days2024"
-class="csl-entry" role="listitem">
-Cruz, Filipe. 2024.
-<span>“Psenough/Teach_yourself_demoscene_in_14_days.”</span>
-</div>
-<div id="ref-cunninghamComputerGraphicsProgramming" class="csl-entry"
-role="listitem">
-Cunningham, Dr Steve. n.d. <span>“Computer <span>Graphics</span>:
-<span>Programming</span>, <span>Problem Solving</span>, and <span>Visual
-Communication</span>.”</span>
-</div>
-<div id="ref-deanOxfordHandbookAlgorithmic2018" class="csl-entry"
-role="listitem">
-Dean, R. T., and Alex McLean, eds. 2018. <em>The <span>Oxford</span>
-Handbook of Algorithmic Music</em>. Oxford Handbooks. New York, NY:
-Oxford University Press.
-</div>
-<div id="ref-Demoscene2023" class="csl-entry" role="listitem">
-<span>“Demoscene.”</span> 2023. <em>Wikipedia</em>, September.
-</div>
-<div id="ref-dewittVisualMusicSearching1987" class="csl-entry"
-role="listitem">
-DeWitt, Tom. 1987. <span>“Visual <span>Music</span>:
-<span>Searching</span> for an <span>Aesthetic</span>.”</span>
-<em>Leonardo</em> 20 (2): 115–22.
-</div>
-<div id="ref-earthstinkSquarepusherInterviewCreators2019"
-class="csl-entry" role="listitem">
-earthstink. 2019. <span>“Squarepusher <span>Interview</span>. <span>The
-Creators Project</span> - <span>Rencontre</span> Avec
-<span>Squarepusher</span>.”</span>
-</div>
-<div id="ref-formentLivecodingOuMusique2021" class="csl-entry"
-role="listitem">
-Forment, Raphael Maurice. 2021. <span>“Live-Coding Et/Ou Musique En
-<span>‘ Plain-Texte ’</span>.”</span> In <em>Journ<span>é</span>es
-d’<span>Informatique Musicale</span> 2021</em>, 11.
-Visioconf<span>é</span>rences, France: AFIM.
-</div>
-<div id="ref-gavotyReProgrammerBoites" class="csl-entry"
-role="listitem">
-Gavoty, Élie. n.d. <span>“<span>(Re)programmer des bo<span>î</span>tes
-noires</span>,”</span> 129.
-</div>
-<div id="ref-GenerativeMusic2023" class="csl-entry" role="listitem">
-<span>“Generative Music.”</span> 2023. <em>Wikipedia</em>, August.
-</div>
-<div id="ref-greenDemo" class="csl-entry" role="listitem">
-Green, Dave. n.d. <span>“Demo or <span>Die</span>!”</span>
-<em>Wired</em>. Accessed November 17, 2023.
-</div>
-<div id="ref-hadji-kyriacouRaymarchingDistanceFields2021"
-class="csl-entry" role="listitem">
-Hadji-Kyriacou, Avelina, and Ognjen Arandjelović. 2021.
-<span>“Raymarching <span>Distance Fields</span> with
-<span>CUDA</span>.”</span> <em>Electronics</em> 10 (22): 2730. <a
-href="https://doi.org/10.3390/electronics10222730">https://doi.org/10.3390/electronics10222730</a>.
-</div>
-<div id="ref-hansenCraftingCodeDemoscene2014" class="csl-entry"
-role="listitem">
-Hansen, Nicolai Brodersen, Rikke Toft Nørgård, and Kim Halskov. 2014.
-<span>“Crafting Code at the Demo-Scene.”</span> In <em>Proceedings of
-the 2014 Conference on <span>Designing</span> Interactive Systems</em>,
-35–38. <span>DIS</span> ’14. New York, NY, USA: Association for
-Computing Machinery. <a
-href="https://doi.org/10.1145/2598510.2598526">https://doi.org/10.1145/2598510.2598526</a>.
-</div>
-<div id="ref-hartleyMultipleViewGeometry" class="csl-entry"
-role="listitem">
-Hartley, Richard, and Andrew Zisserman. n.d. <span>“Multiple <span>View
-Geometry</span> in <span>Computer Vision</span>, <span>Second
-Edition</span>.”</span>
-</div>
-<div id="ref-hegronSyntheseImageAlgorithmes1985" class="csl-entry"
-role="listitem">
-Hégron, Gérard. 1985. <em><span>Synth<span>è</span>se d’image:
-algorithmes <span>é</span>l<span>é</span>mentaires</span></em>.
-<span>Afcet informatique</span>. [Paris: Afcet : Dunod].
-</div>
-<div id="ref-heikkilaFutureDemoArt" class="csl-entry" role="listitem">
-Heikkila, Ville-Matias. n.d. <span>“The <span>Future</span> of
-<span>Demo Art</span>: <span>The Demoscene</span> in the 2010s.”</span>
-</div>
-<div id="ref-herremansFunctionalTaxonomyMusic2017" class="csl-entry"
-role="listitem">
-Herremans, Dorien, Ching-Hua Chuan, and Elaine Chew. 2017. <span>“A
-<span>Functional Taxonomy</span> of <span>Music Generation
-Systems</span>.”</span> <em>ACM Computing Surveys</em> 50 (5): 69:1–30.
-<a
-href="https://doi.org/10.1145/3108242">https://doi.org/10.1145/3108242</a>.
-</div>
-<div id="ref-holmesElectronicExperimentalMusic2009" class="csl-entry"
-role="listitem">
-Holmes, Thom. 2009. <em>Electronic and Experimental Music: Technology,
-Music, and Culture</em>. 3rd ed., transf. to digit. pr. New York:
-Routledge.
-</div>
-<div id="ref-jarvelainenAlgorithmicMusicalComposition" class="csl-entry"
-role="listitem">
-Järveläinen, Hanna. n.d. <span>“Algorithmic <span>Musical
-Composition</span>.”</span>
-</div>
-<div id="ref-kirkbrideFoxDotWorksheet2023" class="csl-entry"
-role="listitem">
-Kirkbride, Ryan. 2023. <span>“<span>FoxDot Worksheet</span>.”</span>
-</div>
-<div id="ref-kirkbrideLiveCodingPython" class="csl-entry"
-role="listitem">
-———. n.d.a. <span>“Live <span>Coding</span> with <span>Python</span> and
-<span>SuperCollider</span>.”</span>
-</div>
-<div id="ref-kirkbrideTROOPCOLLABORATIVETOOL" class="csl-entry"
-role="listitem">
-———. n.d.b. <span>“<span>TROOP</span>: <span>A COLLABORATIVE TOOL FOR
-LIVE CODING</span>.”</span>
-</div>
-<div id="ref-lengyelMathematics3DGame2012" class="csl-entry"
-role="listitem">
-Lengyel, Eric. 2012. <em>Mathematics for <span>3D</span> Game
-Programming and Computer Graphics</em>. 3rd ed. Boston, MA: Course
-Technology, Cengage Learning.
-</div>
-<div id="ref-lilandLimitsUsageDemoscene" class="csl-entry"
-role="listitem">
-Liland, Eivind, and David Geier. n.d. <span>“Beyond the
-<span>Limits</span>: <span>The Usage</span> of <span>C</span>++ in the
-<span>Demoscene</span>.”</span>
-</div>
-<div id="ref-loewProceedingsCERC2012" class="csl-entry" role="listitem">
-Loew, Robert. n.d. <span>“Proceedings of <span>CERC</span> 2012.”</span>
-</div>
-<div id="ref-marschnerFundamentalsComputerGraphics" class="csl-entry"
-role="listitem">
-Marschner, Steve. n.d. <span>“Fundamentals of <span>Computer
-Graphics</span>, <span>Fourth Edition</span>.”</span>
-</div>
-<div id="ref-mccartneyRethinkingComputerMusic2002" class="csl-entry"
-role="listitem">
-McCartney, James. 2002. <span>“Rethinking the <span>Computer Music
-Language</span>: <span>SuperCollider</span>.”</span> <em>Computer Music
-Journal - COMPUT MUSIC J</em> 26 (December): 61–68. <a
-href="https://doi.org/10.1162/014892602320991383">https://doi.org/10.1162/014892602320991383</a>.
-</div>
-<div id="ref-molemanMolemanDemosceneArt2012" class="csl-entry"
-role="listitem">
-Moleman. 2012. <span>“Moleman 2 - <span>Demoscene</span> - <span>The
-Art</span> of the <span>Algorithms</span> (2012).”</span>
-</div>
-<div id="ref-montenontEtudeShaderComment" class="csl-entry"
-role="listitem">
-Montenont, Adrien. n.d. <span>“<span>Etude du shader : Comment
-cr<span>é</span>er un shader r<span>é</span>aliste et
-stylis<span>é</span></span>.”</span>
-</div>
-<div id="ref-morganViolaChamberOrgan" class="csl-entry" role="listitem">
-Morgan, Nigel. n.d. <span>“For Viola and Chamber Organ.”</span>
-</div>
-<div id="ref-murrayRendu3DIntroduction" class="csl-entry"
-role="listitem">
-Murray, David. n.d. <span>“<span>Rendu 3D - Introduction au pipeline
-graphique</span>.”</span>
-</div>
-<div id="ref-nilsonLiveCodingPractice2007" class="csl-entry"
-role="listitem">
-Nilson, Click. 2007. <span>“Live Coding Practice.”</span> In
-<em>Proceedings of the 7th International Conference on <span>New</span>
-Interfaces for Musical Expression</em>, 112–17. <span>NIME</span> ’07.
-New York, NY, USA: Association for Computing Machinery. <a
-href="https://doi.org/10.1145/1279740.1279760">https://doi.org/10.1145/1279740.1279760</a>.
-</div>
-<div id="ref-nortonLearningDevelopingGames2013" class="csl-entry"
-role="listitem">
-Norton, Terry. 2013. <em>Learning <span>C</span># by Developing Games
-with <span>Unity 3D</span> Beginner’s Guide: Learn the Fundamentals of
-<span>C</span># to Create Scripts for Your
-<span>GameObjects</span></em>. Learn by Doing: Less Theory, More
-Results. Birmingham, UK: Packt Publ.
-</div>
-<div id="ref-pachetCyberneticJamFantasy2004" class="csl-entry"
-role="listitem">
-Pachet, F. 2004. <span>“Beyond the Cybernetic Jam Fantasy: The
-Continuator.”</span> <em>IEEE Computer Graphics and Applications</em> 24
-(1): 31–35. <a
-href="https://doi.org/10.1109/MCG.2004.1255806">https://doi.org/10.1109/MCG.2004.1255806</a>.
-</div>
-<div id="ref-papadopoulosAIMethodsAlgorithmic" class="csl-entry"
-role="listitem">
-Papadopoulos, George, and Geraint Wiggins. n.d. <span>“<span>AI
-Methods</span> for <span>Algorithmic Composition</span>: <span>A
-Survey</span>, a <span>Critical View</span> and <span>Future
-Prospects</span>.”</span>
-</div>
-<div id="ref-patelHexagonalGrids2013" class="csl-entry" role="listitem">
-Patel, Amit J. 2013. <span>“Hexagonal <span>Grids</span>.”</span> Red
-Blob Games.
-</div>
-<div id="ref-pharrPhysicallyBasedRendering" class="csl-entry"
-role="listitem">
-Pharr, Matt. n.d. <span>“Physically <span>Based Rendering</span>:
-<span>From Theory</span> to <span>Implementation</span>.”</span>
-</div>
-<div id="ref-pharrPhysicallyBasedRendering2023" class="csl-entry"
-role="listitem">
-Pharr, Matt, Wenzel Jakob, and Greg Humphreys. 2023. <em>Physically
-<span>Based Rendering</span>, Fourth Edition: <span>From Theory</span>
-to <span>Implementation</span></em>. MIT Press.
-</div>
-<div id="ref-polgarFreaxBriefHistory2016" class="csl-entry"
-role="listitem">
-Polgár, Tamás. 2016. <em>Freax: <span>The Brief History</span> of the
-<span>Computer Demoscene</span></em>. CSW-Verlag.
-</div>
-<div id="ref-pritchettMusicJohnCage1996" class="csl-entry"
-role="listitem">
-Pritchett, James. 1996. <em>The <span>Music</span> of <span>John
-Cage</span></em>. Cambridge University Press.
-</div>
-<div id="ref-psenoughSeminarTeachYourself2020" class="csl-entry"
-role="listitem">
-psenough. 2020. <span>“Seminar: <span>Teach Yourself Demoscene</span> in
-14 <span>Days</span> (Speaker: Ps).”</span>
-</div>
-<div id="ref-pyconczRyanKirkbrideProgramming2018" class="csl-entry"
-role="listitem">
-PyCon CZ. 2018. <span>“Ryan <span>Kirkbride</span>: <span>Programming
-Music</span> for <span>Performance</span>: <span>Live</span> Coding with
-<span>FoxDot</span>.”</span>
-</div>
-<div id="ref-reunanenComputerDemosWhat" class="csl-entry"
-role="listitem">
-Reunanen, Markku. n.d.a. <span>“Computer <span>Demos</span>—<span>What
-Makes Them Tick</span>?”</span>
-</div>
-<div id="ref-reunanenDemoscene30Years" class="csl-entry"
-role="listitem">
-———. n.d.b. <span>“Demoscene: 30 Years of Creative Programming.”</span>
-</div>
-<div id="ref-scheibDemoScene2002" class="csl-entry" role="listitem">
-Scheib, Vincent, Theo Engell-Nielsen, Saku Lehtinen, Eric Haines, and
-Phil Taylor. 2002. <span>“The Demo Scene.”</span> In <em><span>ACM
-SIGGRAPH</span> 2002 Conference Abstracts and Applications</em>, 96–97.
-<span>SIGGRAPH</span> ’02. New York, NY, USA: Association for Computing
-Machinery. <a
-href="https://doi.org/10.1145/1242073.1242125">https://doi.org/10.1145/1242073.1242125</a>.
-</div>
-<div id="ref-scoatesBrianEnoVisual2013" class="csl-entry"
-role="listitem">
-Scoates, Christopher. 2013. <em>Brian <span>Eno</span>: <span>Visual
-Music</span></em>. Chronicle Books.
-</div>
-<div id="ref-selvarajLiveCodingReview2021" class="csl-entry"
-role="listitem">
-Selvaraj, Ana, Eda Zhang, Leo Porter, and Adalbert Gerald Soosai Raj.
-2021. <span>“Live <span>Coding</span>: <span>A Review</span> of the
-<span>Literature</span>.”</span> In <em>Proceedings of the 26th
-<span>ACM Conference</span> on <span>Innovation</span> and
-<span>Technology</span> in <span>Computer Science Education V</span>.
-1</em>, 164–70. <span>ITiCSE</span> ’21. New York, NY, USA: Association
-for Computing Machinery. <a
-href="https://doi.org/10.1145/3430665.3456382">https://doi.org/10.1145/3430665.3456382</a>.
-</div>
-<div id="ref-shiffmanNatureCode2012" class="csl-entry" role="listitem">
-Shiffman, Daniel. 2012. <em>The Nature of Code</em>. Version 1.0,
-generated December 6, 2012. s.l.: Selbstverl.
-</div>
-<div id="ref-svidzinskiLIVEPATCHINGCOLLABORATIF2021" class="csl-entry"
-role="listitem">
-Svidzinski, João, and Messina Marcello. 2021. <span>“<span>LIVE PATCHING
-COLLABORATIF</span> - <span>VERS UNE MEDIATION INCLUSIVE AVEC
-L</span>’<span>INFORMATIQUE MUSICALE</span>.”</span> In
-<em>Journ<span>é</span>es d’<span>Informatique Musicale</span>
-2021</em>. Visioconf<span>é</span>rences, France: AFIM.
-</div>
-<div id="ref-tanimotoPerspectiveEvolutionLive2013" class="csl-entry"
-role="listitem">
-Tanimoto, Steven L. 2013. <span>“A Perspective on the Evolution of Live
-Programming.”</span> In <em>2013 1st <span>International Workshop</span>
-on <span>Live Programming</span> (<span>LIVE</span>)</em>, 31–34. San
-Francisco, CA, USA: IEEE. <a
-href="https://doi.org/10.1109/LIVE.2013.6617346">https://doi.org/10.1109/LIVE.2013.6617346</a>.
-</div>
-<div id="ref-tasajarviDemosceneArtRealtime2004" class="csl-entry"
-role="listitem">
-Tasajärvi, Lassi, Mikael Schustin, Bent Stamnes, and Arttu Tolonen.
-2004. <em>Demoscene: The Art of Real-Time</em>. Helsinki: Even Lake
-Studios : Katastro. Fi.
-</div>
-</div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />

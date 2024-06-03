@@ -1,0 +1,21 @@
+/* style.css */
+
+figure {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+margin: 20px 0;
+}
+
+figure img {
+flex: 0 0 48%;
+max-width: 48%;
+height: auto;
+margin: 0 1%;
+}
+
+figure figcaption {
+flex-basis: 100%;
+text-align: center;
+margin-top: 10px;
+}

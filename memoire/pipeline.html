@@ -1,0 +1,636 @@
+<h1 id="le-pipeline-graphique">Le <em>pipeline</em> graphique</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Avant de nous lancer dans l’étude de la programmation de <em>fragment
+shaders</em>, il me semblait primordial de revenir rapidement sur le
+<em>pipeline</em> de la carte graphique et ses différentes étapes afin
+d’avoir une meilleure compréhension de ce processus qui permet
+d’afficher une scène 3D sur un écran 2D.</p>
+<h3 class="unnumbered"
+id="différences-entre-le-gpu-et-le-cpu">Différences entre le GPU et le
+CPU</h3>
+<p>Les différences fondamentales entre le CPU et le GPU résident
+principalement dans leurs architectures, leurs conceptions et leurs
+fonctions principales. Le CPU est conçu pour exécuter des tâches de
+manière séquentielle. Le <em>strip</em> <a href="#cpu00"
+data-reference-type="ref" data-reference="cpu00">1.1</a> illustre le
+processus de dessin d’une image <em>pixel</em> par <em>pixel</em> de
+manière séquentielle et lente.</p>
+<figure id="cpu00">
+<img src="images/pipeline/gpu00.png" />
+<img src="images/pipeline/gpu01.png" />
+<img src="images/pipeline/gpu02.png" />
+<figcaption>Le CPU: intelligent mais lent</figcaption>
+</figure>
+<p>En revanche, le GPU est conçu avec un grand nombre de cœurs plus
+simples (parfois des milliers) qui peuvent travailler simultanément sur
+des tâches parallèles, offrant une capacité de traitement massivement
+parallèle pour les opérations graphiques. Le <em>strip</em> <a
+href="#gpuill" data-reference-type="ref" data-reference="gpuill">1.2</a>
+illustre bien cette caractéristique : le GPU est représenté par une
+grille de tuyaux qui envoient directement leurs informations sur chaque
+<em>pixel</em> pour dessiner la Joconde en un instant. Ces
+<em>strips</em> sont tirés d’une vidéo d’une <a
+href="https://www.youtube.com/watch?app=desktop&amp;v=WmW6SD-EHVY">conférence
+humoristique de NVIDIA datant de 2008</a>.</p>
+<figure id="gpuill">
+<img src="images/pipeline/gpu03.png" />
+<img src="images/pipeline/gpu04.png" />
+<img src="images/pipeline/gpu05.png" />
+<figcaption>Le GPU: rapide mais idiot</figcaption>
+</figure>
+<h3 class="unnumbered" id="comprendre-le-gpu">Comprendre le GPU</h3>
+<p>D’ailleurs, lorsque l’on parle du <em>pipeline</em> de la carte
+graphique c’est un abus de langage, on devrait plutôt parler de
+<em>pipeline</em> du GPU (<em>Graphical Processor Unit</em>).
+Schématiquement, une carte graphique se compose d’un processeur dédié,
+le GPU, et d’une mémoire vive spécifique (voir <a href="#gpuproc"
+data-reference-type="ref" data-reference="gpuproc">1.3</a>).</p>
+<figure id="gpuproc">
+<p><img src="images//shaders/gpu00.png" style="width:75.0%"
+alt="image" /> <span id="gpu00" label="gpu00"></span></p>
+<p><img src="images/pipeline/cg01.jpg" style="width:75.0%"
+alt="image" /> <span id="gpu01" label="gpu01"></span></p>
+<figcaption>Le GPU désigne le processeur dédié au traitement des données
+graphiques.</figcaption>
+</figure>
+<p>Le rôle principal d’un GPU est de créer des images à partir de
+données qui décrivent la scène. En général, ces données en entrée sont
+une collection de triangles, car les triangles sont la forme géométrique
+atomique pour décrire un objet 3D: avec des triangles, nous pouvons
+représenter n’importe quel objet en trois dimensions. Avant de pouvoir
+être exploitées par le GPU, ces données représentant la scène (une
+collection de coordonnées de sommets<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a> représentant les
+triangles dans l’espace 3D) doivent être chargées dans la mémoire vive
+du GPU. Il faut donc que ces données soient décrites côté CPU avant de
+les envoyer au <em>pipeline</em> de rendu (voir <a href="#pipeline01"
+data-reference-type="ref" data-reference="pipeline01">[pipeline01]</a>
+et <a href="#gpu01comm" data-reference-type="ref"
+data-reference="gpu01comm">1.4</a>).</p>
+<figure id="gpu01comm">
+<img src="images//shaders/pipeline01.jpg" style="width:75.0%" />
+<img src="images//shaders/pipeline02.jpg" style="width:75.0%" />
+<figcaption>Communication CPU-GPU</figcaption>
+</figure>
+<h3 class="unnumbered" id="le-parallélisme-dans-le-gpu">Le parallélisme
+dans le GPU</h3>
+<p>Il faut voir la carte graphique comme une machine capable de
+parallélisme, c’est à dire qu’elle effectuera ses calculs sur chacun des
+sommets puis sur chacun des <em>pixels</em> en parallèle. Le même
+<em>vertex shader</em> s’exécutera une fois pour chaque <em>vertex</em>
+et le même <em>fragment shader</em> s’exécutera une fois pour chaque
+<em>pixel</em> comme si la carte graphique possédait des tuyaux dédiés
+pour chaque <em>pixel</em>. En d’autres termes, si l’écran a une
+résolution de <span class="math inline">1920 × 1080</span>, le
+<em>fragment shader</em> devra être exécuté <span
+class="math inline">2.073.600</span> fois par image calculée. Les GPU
+peuvent gérer cela parce qu’ils colorient de nombreux <em>pixels</em> en
+parallèle (c’est-à-dire en même temps) grâce à des <em>threads</em><a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> dédiés aux calculs de chaque
+fragment. En particulier pour le <em>fragment shader</em>, le programme
+ne peut agir que sur un seul <em>pixel</em> à la fois et ne peut pas
+accéder aux valeurs des <em>pixels</em> voisins. En cela on dit souvent
+que le <em>shader</em> est aveugle. Il est aussi incapable de se
+souvenir du résultat du calcul de l’image précédente, en cela on parle
+d’amnésie du <em>shader</em>.</p>
+<h3 class="unnumbered" id="optimisation-matérielle">Optimisation
+matérielle</h3>
+<p>Un autre avantage du GPU est qu’il possède une accélération
+matérielle conçue pour optimiser certaines fonctions mathématiques
+utilisées couramment lors de l’écriture des <em>shaders</em>, comme les
+opérations sur les matrices ou les calculs trigonométriques.</p>
+<h2
+id="étapes-du-pipeline-graphique-du-vertex-au-fragment-shader">Étapes du
+<em>pipeline</em> graphique : du <em>vertex</em> au <em>fragment
+shader</em></h2>
+<p>Le <em>pipeline</em> de traitement graphique assure la conversion des
+attributs des sommets en une image tridimensionnelle qui est ensuite
+affichée à l’écran. Les attributs habituels comprennent la coordonnée 3D
+de chaque sommet, sa coordonnée de texture et sa couleur. Cependant, il
+est possible d’ajouter n’importe quel attribut car la carte graphique
+interprétera ces données comme de la « data » pure. Les différentes
+étapes de ce <em>pipeline</em>, dans leur séquence chronologique,
+comprennent le <em>vertex shader</em>, le <em>geometry shader</em>, la
+rastérisation (<em>rasterization</em> en anglais) et le <em>fragment
+shader</em>. Dans cette section, nous nous concentrerons sur une analyse
+détaillée du <em>vertex shader</em>, du <em>geometry shader</em> et de
+la rastérisation. Quant au <em>fragment shader</em>, qui constitue la
+pierre angulaire du <em>livecoding</em>, il sera décortiqué dans le
+prochain chapitre.</p>
+<h3 class="unnumbered" id="le-vertex-shader">Le <em>vertex
+shader</em></h3>
+<h4 class="unnumbered" id="le-vertex-shader-en-code">Le <em>vertex
+shader</em> en code</h4>
+<p>Voici un exemple très basique d’un <em>vertex shader</em>. On peut
+remarquer que les données de la scène sont réceptionnées dans les
+variables (3 coordonnées en <span class="math inline"><em>X</em></span>,
+en <span class="math inline"><em>Y</em></span> et en <span
+class="math inline"><em>Z</em></span>) et (3 valeurs pour le rouge, le
+vert et le bleu et 1 valeur pour l’opacité). On a donc accès à la
+position et à la couleur de chaque <em>vertex</em>.</p>
+<div class="sourceCode" id="cb1" data-language="GLSL"
+data-caption="\textit{Vertex shader} en GLSL"><pre
+class="sourceCode GLSL"><code class="sourceCode glsl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">attribute</span> <span class="dt">vec3</span> pos<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">attribute</span> <span class="dt">vec4</span> col<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">main</span><span class="op">()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">gl_Position</span> <span class="op">=</span> <span class="dt">vec4</span><span class="op">(</span>pos<span class="op">,</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>La variable est une variable de sortie, donc le programme se contente
+de récupérer la position de chaque <em>vertex</em> et de l’envoyer à la
+prochaine étape du <em>pipeline</em> (la rastérisation) sans leur
+appliquer de transformation. On remarque cependant l’ajout d’une
+quatrième composante avec la valeur <span class="math inline">1</span>.
+Ce <span class="math inline">1</span> indique que nous utilisons des
+coordonnées homogènes<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>. En simplifiant on peut retenir que
+lorsque cette quatrième composante est à <span
+class="math inline">1</span> cela signifie que l’on désigne une
+position, et lorsqu’elle est à <span class="math inline">0</span> que
+l’on désigne une direction.</p>
+<h3 class="unnumbered"
+id="comprendre-les-transformations-matricielles">Comprendre les
+transformations matricielles</h3>
+<p>Le rôle fondamental du <em>vertex shader</em> est de transformer les
+coordonnées de chaque sommet dans différents espaces, comme nous
+l’explorerons plus en détail dans la section suivante. Heureusement, les
+matrices de transformation permettent d’appliquer facilement des
+opérations telles que la translation, la rotation et la mise à l’échelle
+sur des objets en 3D. Il est à noter qu’une quatrième composante, notée
+<span class="math inline"><em>w</em></span>, est utilisée pour décrire
+les coordonnées des sommets. Cette composante facilite la représentation
+des transformations projectives et simplifie les calculs mathématiques
+nécessaires au rendu 3D.</p>
+<h4 class="unnumbered" id="la-matrice-identité">La matrice identité</h4>
+<p>La matrice identité<a href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a> est couramment utilisée comme point
+de départ pour les transformations. En effet, elle permet de s’assurer
+du contenu de la mémoire avant d’effectuer les transformations
+matricielles. Elle agit comme un élément neutre pour la multiplication
+matricielle, comme le <span class="math inline">0</span> pour l’addition
+ou le <span class="math inline">1</span> pour la multiplication. Elle
+est souvent modifiée en ajoutant des opérations de translation, de
+rotation ou de mise à l’échelle pour produire des transformations plus
+complexes. <span class="math display">$$\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+1\\
+2\\
+3\\
+4
+\end{bmatrix}
+=
+\begin{bmatrix}
+1\\
+2\\
+3\\
+4
+\end{bmatrix}$$</span></p>
+<h4 class="unnumbered" id="la-matrice-de-mise-à-léchelle">La matrice de
+mise à l’échelle</h4>
+<p>Si nous remplaçons les <span class="math inline">1</span> de la
+matrice d’identité par des <span class="math inline">3</span>, cela
+signifie que chaque élément du vecteur serait multiplié par <span
+class="math inline">3</span> lors de la multiplication matricielle. En
+conséquence, le vecteur serait uniformément augmenté de <span
+class="math inline">3</span> dans toutes les directions. En représentant
+les facteurs d’échelle par <span
+class="math inline">(<em>S</em>1, <em>S</em>2, <em>S</em>3)</span>, nous
+pouvons définir une matrice d’échelle pour n’importe quel vecteur <span
+class="math inline">(<em>x</em>, <em>y</em>, <em>z</em>)</span> comme
+suit : <span class="math display">$$\begin{bmatrix}
+S1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; S2 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; S3 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x\\
+y\\
+z\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x \cdot S1\\
+y \cdot S2\\
+z \cdot S3\\
+1
+\end{bmatrix}$$</span></p>
+<h4 class="unnumbered" id="la-matrice-de-translation">La matrice de
+translation</h4>
+<p>La translation déplace un objet d’une certaine distance le long des
+axes <span class="math inline"><em>X</em></span>, <span
+class="math inline"><em>Y</em></span> et <span
+class="math inline"><em>Z</em></span>. Pour représenter une translation
+dans une matrice de transformation, on utilise une matrice identité de
+taille <span class="math inline">4 × 4</span>, mais avec des valeurs
+spécifiques dans la dernière colonne (les trois premières valeurs de la
+dernière colonne représentent les translations le long des axes <span
+class="math inline"><em>X</em></span>, <span
+class="math inline"><em>Y</em></span> et <span
+class="math inline"><em>Z</em></span> respectivement). Par exemple, pour
+une translation de <span
+class="math inline"><em>t</em><em>x</em></span>, <span
+class="math inline"><em>t</em><em>y</em></span>, <span
+class="math inline"><em>t</em><em>z</em></span>, la matrice de
+transformation ressemblerait à cela :</p>
+<p><span class="math display">$$\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; T_x\\
+0 &amp; 1 &amp; 0 &amp; T_y\\
+0 &amp; 0 &amp; 1 &amp; T_z\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x\\
+y\\
+z\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x + T_x\\
+y + T_y\\
+z + T_z\\
+1
+\end{bmatrix}$$</span></p>
+<h4 class="unnumbered" id="la-matrice-de-rotation-autour-de-laxe-x">La
+matrice de rotation autour de l’axe X</h4>
+<p>La rotation fait tourner un objet autour des axes <span
+class="math inline"><em>X</em></span>, <span
+class="math inline"><em>Y</em></span> et <span
+class="math inline"><em>Z</em></span>. Les rotations peuvent être
+définies en radians ou en degrés. Pour chaque axe de rotation, il existe
+une matrice de rotation correspondante. Par exemple, pour une rotation
+autour de l’axe <span class="math inline"><em>X</em></span> par un angle
+<span class="math inline"><em>θ</em></span>, la matrice de rotation
+serait : <span class="math display">$$\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; \cos{\theta} &amp; -\sin{\theta} &amp; 0\\
+0 &amp; \sin{\theta} &amp; \cos{\theta} &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x\\
+y\\
+z\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x\\
+\cos{\theta} \cdot y - \sin{\theta} \cdot z\\
+\sin{\theta} \cdot y + \sin{\theta} \cdot z\\\\
+1
+\end{bmatrix}$$</span></p>
+<h4 class="unnumbered" id="la-matrice-de-rotation-autour-de-laxe-y">La
+matrice de rotation autour de l’axe Y</h4>
+<p>Pour la matrice de rotation autour de l’axe <span
+class="math inline"><em>Y</em></span>, on observe que cette matrice est
+semblable à celle de la rotation autour de l’axe <span
+class="math inline"><em>X</em></span>, à la différence près que des
+zéros ont été insérés dans la deuxième ligne et la deuxième colonne, à
+l’exception de la diagonale où un <span class="math inline">1</span> est
+conservé pour maintenir la position inchangée.</p>
+<p><span class="math display">$$\begin{bmatrix}
+\cos{\theta} &amp; 0 &amp; \sin{\theta} &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+-\sin{\theta} &amp; 0 &amp; \cos{\theta} &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x\\
+y\\
+z\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+
+\cos{\theta} \cdot x + \sin{\theta} \cdot z\\
+y\\
+-\sin{\theta} \cdot x + \cos{\theta} \cdot z\\
+1
+\end{bmatrix}$$</span></p>
+<h4 class="unnumbered" id="la-matrice-de-rotation-autour-de-laxe-z">La
+matrice de rotation autour de l’axe Z</h4>
+<p>Le même phénomène se produit pour la rotation autour de l’axe <span
+class="math inline"><em>Z</em></span> mais avec la troisième ligne et la
+troisième colonne.</p>
+<p><span class="math display">$$\begin{bmatrix}
+\cos{\theta} &amp; -\sin{\theta} &amp; 0 &amp; 0\\
+\sin{\theta} &amp;  \cos{\theta} &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x\\
+y\\
+z\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos{\theta} \cdot x - \sin{\theta} \cdot y\\
+\sin{\theta} \cdot x + \cos{\theta} \cdot y\\
+z\\
+1
+\end{bmatrix}$$</span></p>
+<h3 class="unnumbered"
+id="comprendre-les-systèmes-de-coordonnées-en-3d">Comprendre les
+systèmes de coordonnées en 3D</h3>
+<p>Il était utile d’aborder le fonctionnement des matrices de
+transformation, car le <em>vertex shader</em> a pour objectif de
+convertir efficacement une représentation spatiale en une autre. Le rôle
+principal du <em>vertex shader</em> est de transformer les coordonnées
+3D de notre objet en coordonnées 3D normalisées<a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> qui
+s’afficheront à l’écran. Ces coordonnées doivent se situer dans
+l’intervalle <span class="math inline">[−1, 1]</span>, car les sommets
+avec des coordonnées en dehors de cette plage ne seront pas visibles à
+l’écran. Le problème dans le code précédent est que nous nous contentons
+de passer les coordonnées 3D des sommets sans appliquer de
+transformation. La transformation des coordonnées en NDC se fait étape
+par étape, en passant par cinq systèmes de coordonnées différents :</p>
+<div class="samepage">
+<ol>
+<li><p>Coordonnées du modèle (<em>Model Space</em>)</p></li>
+<li><p>Coordonnées du monde (<em>World Space</em>)</p></li>
+<li><p>Coordonnées de la vue (<em>View Space</em> ou <em>Eye
+Space</em>)</p></li>
+<li><p>Coordonnées de projection (<em>Clip Space</em>)</p></li>
+<li><p>Coordonnées normalisées de l’écran (NDC)</p></li>
+</ol>
+</div>
+<p>Le <em>vertex shader</em> est responsable de la transformation des
+coordonnées du modèle en coordonnées normalisées de l’écran, en
+appliquant une série de transformations matricielles appropriées à
+chaque sommet de l’objet (voir <a href="#syscoord00"
+data-reference-type="ref" data-reference="syscoord00">1.5</a>).
+Effectivement, chaque étape de transformation des coordonnées vers les
+coordonnées normalisées de l’écran s’appuie sur des matrices de
+transformation, parmi lesquelles figurent les matrices de modèle, de vue
+et de projection.</p>
+<figure id="syscoord00">
+<img src="images//shaders/syscoord00.png" style="width:75.0%" />
+<figcaption>Transformation des coordonnées dans le <em>vertex
+shader</em></figcaption>
+</figure>
+<p>Initialement, nous disposons des coordonnées locales de notre objet
+par rapport à son origine locale. L’espace local représente les
+coordonnées locales de l’objet, c’est-à-dire l’endroit où il est créé ou
+modélisé. Par exemple, si nous créons un cube dans un logiciel de
+modélisation comme Blender, ce cube sera généralement centré autour de
+l’origine de l’espace local.</p>
+<p>Dans l’espace local, les coordonnées de chaque sommet sont définies
+par rapport au centre de l’objet. Cependant, pour rendre cet objet dans
+une scène 3D, nous devons le placer et l’orienter par rapport à la scène
+globale. C’est là que la matrice de modèle entre en jeu : elle permet de
+transformer les coordonnées locales de l’objet en coordonnées du monde,
+en appliquant des transformations telles que la translation, la rotation
+et la mise à l’échelle. Une fois que les coordonnées sont dans l’espace
+du monde, elles sont transformées dans l’espace de vue (ou espace œil) à
+l’aide de la matrice de vue.</p>
+<p>Dans cet espace, la caméra est positionnée à l’origine et les objets
+sont positionnés et orientés par rapport à la caméra. Cette
+transformation permet de simuler le déplacement et l’orientation de la
+caméra dans la scène.</p>
+<p>Ensuite, les coordonnées de vue sont transformées dans l’espace de
+projection à l’aide de la matrice de projection. Dans cet espace, les
+coordonnées sont projetées dans un espace 3D canonique, où les
+coordonnées <span class="math inline"><em>X</em></span>, <span
+class="math inline"><em>Y</em></span> et <span
+class="math inline"><em>Z</em></span> sont normalisées et se trouvent
+dans la plage <span class="math inline">[−1, 1]</span>. Cette étape
+permet de déterminer quels objets sont visibles à l’écran et on peut
+utiliser soit la projection en perspective, soit la projection
+orthographique. Enfin, les coordonnées de projection sont transformées
+en coordonnées normalisées de l’écran (NDC) en divisant les coordonnées
+par leur composante <span class="math inline"><em>w</em></span>
+(homogène). Cela place les coordonnées dans une plage standardisée de
+<span class="math inline">[−1, 1]</span>, ce qui permet de déterminer
+quels sommets et quelles parties de la scène seront rendus à l’écran. Le
+volume qui détermine si un sommet sera affiché ou non s’appelle le
+<em>frustum</em><a href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a>.</p>
+<p>Nous venons de mentionner qu’il existe deux types principaux de
+matrices de projection : la matrice de projection orthographique et la
+matrice de projection en perspective. Contrairement à la projection
+perspective , où les objets plus éloignés sont réduits en taille, la
+projection orthographique conserve la taille relative des objets,
+indépendamment de leur distance par rapport à la caméra. Cela signifie
+que les objets éloignés apparaissent de la même taille que les objets
+proches. La projection orthographique, quant à elle, est souvent
+utilisée dans les rendus 2D et dans certaines applications
+architecturales ou d’ingénierie où l’on souhaite éviter les déformations
+des objets dues à la perspective. Elle offre une représentation plus
+fidèle des dimensions et des proportions des objets, ce qui peut être
+préférable dans certains cas d’utilisation. Une application comme
+Blender, qui est utilisée pour la modélisation 3D, utilise parfois la
+projection orthographique pour la modélisation car elle représente plus
+précisément les dimensions de chaque objet (voir <a href="#syscoord5"
+data-reference-type="ref" data-reference="syscoord5">1.6</a>).</p>
+<figure id="syscoord5">
+<img src="images//shaders/syscoord5.png" style="width:75.0%" />
+<figcaption>Les deux types de projection dans Blender</figcaption>
+</figure>
+<p>Dans le processeur central (CPU), après avoir défini une matrice de
+transformation pour chacune des étapes susmentionnées (modèle, vue et
+projection), on transforme les coordonnées de chaque sommet en
+coordonnées de l’espace NDC comme suit:</p>
+<div class="sourceCode" id="cb2" data-language="GLSL"
+data-caption="\textit{Vertex shader} en GLSL"><pre
+class="sourceCode GLSL"><code class="sourceCode glsl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">attribute</span> <span class="dt">vec3</span> pos<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">attribute</span> <span class="dt">vec4</span> col<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">main</span><span class="op">()</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">gl_Position</span> <span class="op">=</span> m_proj <span class="op">*</span> m_view <span class="op">*</span> m_model <span class="op">*</span> pos<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 class="unnumbered" id="le-geometry-shader">Le <em>geometry
+shader</em></h3>
+<p>Le <em>geometry shader</em> (ou nuanceur de géométrie en français)
+est aussi une étape programmable mais optionnelle qui se situe entre le
+<em>vertex shader</em> et le <em>fragment shader</em>. Le <em>geometry
+shader</em> prend en entrée un ensemble de sommets qui forment une
+primitive unique, par exemple un point ou un triangle. Le <em>geometry
+shader</em> peut ensuite transformer ces sommets comme il l’entend avant
+de les envoyer à l’étape suivante du <em>pipeline</em>. Ce qui rend le
+<em>geometry shader</em> intéressant, c’est qu’il est capable de
+convertir la primitive d’origine (ensemble de sommets) en des primitives
+complètement différentes, en générant éventuellement plus de sommets
+qu’il n’y en avait au départ.</p>
+<p>Il peut par exemple subdiviser un <em>quad</em><a href="#fn7"
+class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+pour créer de nouveaux triangles et ainsi donner plus de détails à la
+modélisation. On peut aussi s’en servir pour créer des formes complexes
+à partir de formes très simples. Par exemple, on peut créer un cheveu à
+partir d’un segment constitué de seulement deux sommets. En général, on
+l’utilise pour des effets visuels en temps réel tels que la déformation
+de la géométrie, la génération de particules, l’effet de feuillage pour
+les arbres, les vagues dans l’eau, etc.</p>
+<figure id="geo01">
+<img src="images/shaders/geometry_shader_00.png" />
+<img src="geometry_shader_01.png" />
+<figcaption><em>Geometry shader</em> - Création d’une
+maison</figcaption>
+</figure>
+<p>Comme illustré plus haut (voir <a href="#geo00"
+data-reference-type="ref" data-reference="geo00">[geo00]</a>), le
+<em>geometry shader</em> prend une primitive de point comme entrée et
+crée une primitive de ligne horizontale avec le point d’entrée en son
+centre. Au départ nous avions seulement quatre points provenant du CPU,
+et le <em>geometry shader</em> à créé de nouveaux points pour chacun et
+empaqueté le tout dans une nouvelle primitive avant de l’envoyer aux
+étapes suivantes du <em>pipeline</em>. Bien qu’il s’agisse d’un exemple
+relativement simple, il montre comment nous pouvons utiliser les
+<em>geometry shaders</em> pour générer dynamiquement de nouvelles formes
+à la volée. Rien ne nous empêche de complexifier la tâche du
+<em>geometry shader</em>. Dans le code suivant, à partir d’un seul point
+nous dessinons une maison en créant cinq nouveaux sommets (voir <a
+href="#geo01" data-reference-type="ref"
+data-reference="geo01">1.7</a>):</p>
+<div class="sourceCode" id="cb3" data-language="GLSL"
+data-caption="\textit{Geometry shader} en GLSL - Maison à partir d&#39;un seul \textit{vertex}"><pre
+class="sourceCode GLSL"><code class="sourceCode glsl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#version 330 core</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">layout</span> <span class="op">(</span><span class="dt">points</span><span class="op">)</span> <span class="dt">in</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">layout</span> <span class="op">(</span><span class="dt">triangle_strip</span><span class="op">,</span> <span class="dt">max_vertices</span> <span class="op">=</span> <span class="dv">5</span><span class="op">)</span> <span class="dt">out</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">build_house</span><span class="op">(</span><span class="dt">vec4</span> position<span class="op">)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span>    </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">gl_Position</span> <span class="op">=</span> position <span class="op">+</span> <span class="dt">vec4</span><span class="op">(-</span><span class="fl">0.2</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">);</span>    <span class="co">// 1:bottom-left</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">EmitVertex</span><span class="op">();</span>   </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">gl_Position</span> <span class="op">=</span> position <span class="op">+</span> <span class="dt">vec4</span><span class="op">(</span> <span class="fl">0.2</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">);</span>    <span class="co">// 2:bottom-right</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">EmitVertex</span><span class="op">();</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">gl_Position</span> <span class="op">=</span> position <span class="op">+</span> <span class="dt">vec4</span><span class="op">(-</span><span class="fl">0.2</span><span class="op">,</span>  <span class="fl">0.2</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">);</span>    <span class="co">// 3:top-left</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">EmitVertex</span><span class="op">();</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">gl_Position</span> <span class="op">=</span> position <span class="op">+</span> <span class="dt">vec4</span><span class="op">(</span> <span class="fl">0.2</span><span class="op">,</span>  <span class="fl">0.2</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">);</span>    <span class="co">// 4:top-right</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">EmitVertex</span><span class="op">();</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">gl_Position</span> <span class="op">=</span> position <span class="op">+</span> <span class="dt">vec4</span><span class="op">(</span> <span class="fl">0.0</span><span class="op">,</span>  <span class="fl">0.4</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">);</span>    <span class="co">// 5:top</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">EmitVertex</span><span class="op">();</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">EndPrimitive</span><span class="op">();</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">main</span><span class="op">()</span> <span class="op">{</span>    </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">build_house</span><span class="op">(</span><span class="va">gl_in</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">gl_Position</span><span class="op">);</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  </span></code></pre></div>
+<h3 class="unnumbered" id="le-rasterizer">Le <em>rasterizer</em></h3>
+<p>La rastérisation est une étape cruciale du <em>pipeline</em>
+graphique dans le processus de rendu en 3D. C’est l’étape qui consiste à
+convertir toutes les données 3D en une image matricielle en deux
+dimensions afin de pouvoir les afficher à l’écran (voir <a
+href="#rasterizer" data-reference-type="ref"
+data-reference="rasterizer">1.8</a>). Pour résumer, la rastérisation
+prend entrée la liste des triangles de l’étape précédente (espace 3D) et
+les convertit en <em>pixels</em> (ou plus exactement des fragments)
+correspondant à chacun des triangles (espace 2D). C’est aussi lors de
+cette étape qu’une interpolation des attributs des sommets (tels que les
+couleurs, les coordonnées de texture, etc.) est effectuée sur les
+<em>pixels</em> résultants. Le développeur n’a aucun contrôle sur cette
+étape, c’est un élément <em>hardware</em> de la carte graphique qui est
+dédié à ces calculs : le <em>rasterizer</em>.</p>
+<figure id="rasterizer">
+<img src="images/shaders/raster00.png" />
+<img src="images/shaders/rasterizer.png" />
+<figcaption>Rastérisation</figcaption>
+</figure>
+<h4 class="unnumbered"
+id="interpolation-des-attributs-lors-de-la-rastérisation">Interpolation
+des attributs lors de la rastérisation</h4>
+<p>Même si la couleur a été définie pour chaque <em>vertex</em>, lorsque
+l’on se trouve à l’intérieur du <em>fragment shader</em> c’est une
+valeur interpolée que l’on reçoit. Depuis le CPU, on associe des
+attributs aux <em>vertices</em>: pour l’ordinateur il s’agit simplement
+de data. À un seul <em>vertex</em>, en général on lui associe une
+position, une couleur, et une coordonnée d’uv. Ces données sont ensuite
+envoyées au GPU qui se chargera d’interpoler les valeurs via le
+<em>rasterizer</em>. Ainsi, si l’on décrit un triangle dans le CPU, avec
+du rouge du vert du bleu associé à chacun de ses <em>vertex</em>, le GPU
+affichera un triangle aux couleurs interpolées. Tous les <em>pixels</em>
+situés à l’intérieur de ce triangle posséderont une couleur qui sera la
+combinaison des trois couleurs de chaque sommet, la quantité variant
+selon la distance par rapport à ces sommets.</p>
+<figure id="interpolation01">
+<p><img src="images/shaders/interpolation00.png" alt="image" /> <span
+id="interpolation00" label="interpolation00"></span></p>
+<p><img src="images/shaders/interpolation01.JPG" alt="image" /> <span
+id="interpolation01" label="interpolation01"></span></p>
+<figcaption>Interpolation des couleurs</figcaption>
+</figure>
+<h2 id="conclusion">Conclusion</h2>
+<p>Dans ce chapitre, nous avons plongé dans le cœur même du processus de
+rendu graphique en explorant le <em>pipeline</em> graphique. Nous avons
+commencé par une revue du <em>pipeline</em> de la carte graphique, de la
+compréhension du GPU à son architecture optimisée. Ensuite, nous avons
+parcouru les étapes essentielles du <em>pipeline</em> graphique, en nous
+concentrant particulièrement sur le <em>vertex shader</em> et le
+<em>geometry shader</em>. Le <em>vertex shader</em> joue un rôle
+indispensable en transformant les coordonnées des sommets dans
+différents espaces, tandis que le <em>geometry shader</em> offre une
+flexibilité supplémentaire en permettant la création dynamique de
+géométrie. Enfin, nous avons examiné l’étape de rastérisation, où les
+primitives 3D sont converties en fragments 2D prêts à être affichés à
+l’écran. En combinant ces différentes étapes, le <em>pipeline</em>
+graphique accomplit la tâche complexe de convertir des données 3D en une
+image 2D qui s’affiche sur nos écrans.</p>
+<p>Nous allons consacrer le prochain chapitre à une étape fondamentale
+du <em>pipeline</em> que nous n’avons volontairement pas traitée dans
+cette section : le <em>fragment shader</em>. Cette étape revêt une
+importance capitale dans la pratique du <em>livecoding</em>. Nous
+examinerons en détail les techniques essentielles à maîtriser pour une
+performance scénique réussie.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Un sommet (<em>vertex</em> en anglais) est un point dans
+l’espace tridimensionnel. Les sommets sont des entités fondamentales
+utilisées pour définir la géométrie des objets dans une scène 3D.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Un <em>thread</em> fait référence à une unité de
+traitement ou à une séquence d’instructions exécutées par le processeur
+graphique. Les GPU modernes sont équipés de multiples processeurs de
+flux, chacun capable de gérer plusieurs <em>threads</em>
+simultanément.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Les coordonnées homogènes sont un concept clé en
+géométrie et en informatique graphique, offrant une représentation
+unifiée des points et des vecteurs ainsi que des avantages significatifs
+pour les opérations géométriques et les transformations.<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>La matrice identité est une matrice carrée dans laquelle
+tous les éléments de la diagonale principale sont égaux à <span
+class="math inline">1</span>, tandis que tous les autres éléments sont
+égaux à <span class="math inline">0</span>.<a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Les coordonnées 3D normalisées (NDC), abréviation de
+<em>Normalized Device Coordinates</em> en anglais, sont un système de
+coordonnées tridimensionnelles utilisé dans les graphiques 3D. Dans ce
+système, les coordonnées sont normalisées par rapport à la taille de
+l’espace de visualisation, de sorte que les coordonnées <span
+class="math inline"><em>X</em></span>, <span
+class="math inline"><em>Y</em></span> et <span
+class="math inline"><em>Z</em></span> varient toutes entre <span
+class="math inline">−1</span> et <span class="math inline">1</span>.<a
+href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>En informatique graphique, le <em>frustum</em> est une
+approximation de la zone de l’espace tridimensionnel qui est visible à
+travers une caméra ou une fenêtre de visualisation. Il est utilisé pour
+décider quels éléments doivent être rendus dans une scène 3D.<a
+href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>En modélisation 3D, un <em>quad</em>, abréviation de «
+quadrilatère », fait référence à un polygone composé de quatre sommets
+reliés par des arêtes.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

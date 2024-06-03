@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>demoscene</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="demoscene-origine-et-évolution"><em>Demoscene</em>: origine et
+évolution</h1>
+<div class="epigraph">
+<p>Au sein de la riche mosaïque de la culture urbaine, une multitude de
+formes d’expression personnelle émergent et trouvent leur voie. Qu’il
+s’agisse de pensées, d’images, de rythmes et mélodies, ou même de
+parfums et matériaux transformés, tout devient prétexte à traduire une
+émotion humaine. Mais que se produit-il lorsque quelqu’un choisit de
+communiquer par le biais des nombres ?</p>
+<p><em>Moleman 2 - Demoscene - The Art of the Algorithms (2012) -
+Documentaire</em></p>
+</div>
+<h2 id="préambule">Préambule</h2>
+<p>En guise de préambule, il me semblait important de mentionner que les
+illustrations de ce chapitre sont des <em>strips</em><a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+représentant trois images d’une <em>demo</em>, disposées dans l’ordre
+chronologique de la <em>demo</em> elle-même. Ces images ont été
+extraites des sites <a href="https://pouet.net">pouet.net</a> et <a
+href="https://demozoo.org">demozoo.org</a>. Leur insertion vise à aérer
+la lecture de ce premier chapitre et à fournir des exemples visuels pour
+illustrer certains effets ou concepts discutés dans le texte. L’ordre
+dans lequel la grande majorité de ces <em>strips</em> apparaissent au
+sein du texte est totalement aléatoire, sans aucune notion de
+chronologie.</p>
+<h2 id="introduction-à-la-demo">Introduction à la <em>demo</em></h2>
+<figure id="kewl">
+<img src="images/demoscene/demos/kewl1.png" />
+<img src="images/demoscene/demos/kewl2.png" />
+<img src="images/demoscene/demos/kewl3.png" />
+<figcaption>Kewlers - 1995</figcaption>
+</figure>
+<h3 class="unnumbered"
+id="la-dualité-du-terme-demo-dans-la-demoscene">La dualité du terme
+<em>demo</em> dans la <em>demoscene</em></h3>
+<p>Le terme <em>demo</em> peut évoquer pour certains les démos de jeux
+vidéo. Cependant, au sein de la <em>demoscene</em>, sa signification
+s’écarte sensiblement de cette conception. Alors qu’une démo de jeu est
+conçue pour présenter un aperçu restreint du produit final, une
+<em>demo</em> dans le contexte de la <em>demoscene</em> se présente
+comme une œuvre d’art autonome, élaborée pour explorer et repousser les
+frontières techniques et esthétiques d’un système informatique.</p>
+<p>Si les <em>demos</em> et les jeux vidéo partagent des techniques et
+des compétences techniques avancées, leurs aspirations divergent
+nettement. Alors que les jeux vidéo adhèrent généralement à un scénario
+préétabli, une <em>demo</em> cherche à transcender les contraintes
+techniques pour offrir une expérience sensorielle riche, souvent
+assimilée à un clip musical.</p>
+<h3 class="unnumbered" id="la-demo-entre-performance-et-exécutable">La
+<em>demo</em> : entre performance et exécutable</h3>
+<p>Pour appréhender pleinement la notion de <em>demo</em>, il convient
+de se pencher sur son étymologie anglaise, <em>demonstration</em>, qui
+suggère une performance visant à captiver et impressionner l’auditoire.
+Conceptuellement, une <em>demo</em> peut être comparée à une animation
+musicale d’une durée généralement restreinte, souvent quelques minutes.
+Toutefois, elle ne se réduit ni à une simple vidéo ni à un fichier
+audio. En réalité, une <em>demo</em> est un programme exécutable, un
+fichier binaire, au même titre qu’un logiciel ou un jeu vidéo
+traditionnel.</p>
+<h3 class="unnumbered"
+id="repousser-les-limites-techniques-des-demos">Repousser les limites
+techniques des <em>demos</em></h3>
+<p>Pour dépasser ces contraintes techniques, les programmeurs de
+<em>demos</em> doivent optimiser leur code afin de produire des effets
+visuels tout en utilisant un minimum de ressources. Nombreux sont les
+<em>demosceners</em> en quête de techniques permettant d’afficher des
+graphismes spectaculaires et de repousser les limites de ce qui est
+réalisable sur une plateforme spécifique.</p>
+<h3 class="unnumbered"
+id="la-vitalité-de-la-demoscene-en-allemagne-et-dans-les-pays-scandinaves">La
+vitalité de la <em>demoscene</em> en Allemagne et dans les pays
+scandinaves</h3>
+<p>Il est important de souligner que la <em>demoscene</em> trouve son
+épicentre de vitalité et de succès en Allemagne et dans les pays
+scandinaves, où elle jouit d’une forte implantation et d’une activité
+soutenue. Cette prééminence régionale s’explique en partie par la longue
+tradition de ces pays dans la mise en avant des compétences en
+informatique et en art numérique.</p>
+<p>Ces nations sont également le berceau des plus grandes
+<em>demoparties</em> annuelles. Par exemple, la Breakpoint en Allemagne,
+qui a eu lieu huit fois jusqu’en 2010, attirait régulièrement une
+audience dépassant le millier de visiteurs venus de près de trente
+nations différentes. Des événements similaires, tels que l’Assembly en
+Finlande ou The Gathering en Norvège, bien qu’initialement axés sur la
+mise en avant des compétences artistiques et informatiques, ont
+également élargi leur public pour inclure les passionnés de jeux sur PC.
+Malgré la tenue d’événements plus modestes à travers le monde, le nombre
+total de productions dévoilées lors de ces rassemblements dépasse
+désormais les 50 000.</p>
+<h3 class="unnumbered"
+id="reconnaissance-internationale-de-la-demoscene-par-lunesco">Reconnaissance
+internationale de la <em>demoscene</em> par l’UNESCO</h3>
+<p>En 2020, la Finlande a inscrit la <em>demoscene</em> sur sa liste
+nationale du patrimoine culturel immatériel de l’UNESCO<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>,
+marquant ainsi une reconnaissance significative de cette forme
+d’expression artistique numérique. Cette démarche a fait de la
+<em>demoscene</em> la première sous-culture numérique à être honorée sur
+une liste de patrimoine culturel immatériel de l’UNESCO. Plus tard, en
+2021, l’Allemagne et la Pologne ont également suivi en ajoutant la
+<em>demoscene</em> à leur liste nationale du patrimoine culturel
+immatériel de l’UNESCO, suivies par les Pays-Bas en 2023.</p>
+<h2 id="origines-de-la-demoscene">Origines de la <em>demoscene</em></h2>
+<figure id="ninja">
+<img src="images/demoscene/demos/ninja1.png" />
+<img src="images/demoscene/demos/ninja2.png" />
+<img src="images/demoscene/demos/ninja3.png" />
+<figcaption>Ninjadev – What Are You Syncing About?</figcaption>
+</figure>
+<h3 class="unnumbered"
+id="limpact-du-commodore-64-sur-lémergence-de-la-demoscene">L’impact du
+Commodore 64 sur l’émergence de la <em>demoscene</em></h3>
+<p>On peut situer les origines des <em>demos</em> autour des années
+1983-1984, marquées par l’introduction du Commodore 64 (C64) en 1982. Le
+Commodore 64 est un ordinateur personnel qui a rapidement conquis le
+marché grâce à son prix attractif et à sa vaste ludothèque. À cette
+époque, il rivalisait avec les bornes d’arcade en termes de qualité
+sonore et graphique, éclipsant les consoles de jeux non programmables.
+Sur le plan matériel, le C64 disposait d’un microprocesseur MOS
+Technology 6510 à 1 MHz, de 64 Ko de mémoire RAM<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+(d’où son nom), et d’une puce graphique et sonore intégrée, le SID
+(<em>Sound Interface Device</em>) (voir <a href="#Commodore64_00"
+data-reference-type="ref"
+data-reference="Commodore64_00">[Commodore64_00]</a> et <a
+href="#Commodore64_01" data-reference-type="ref"
+data-reference="Commodore64_01">1.3</a>). Cette dernière offrait des
+capacités graphiques et sonores avancées pour son époque.</p>
+<figure id="Commodore64_01">
+<img src="images/demoscene/Commodore64_00.jpg" style="height:1.5in" />
+<img src="images/demoscene/Commodore64_01.jpg" style="height:1.5in" />
+<figcaption>Commodore 64 avec écran et lecteur de disquette</figcaption>
+</figure>
+<p>Le Commodore 64 a grandement contribué à populariser l’informatique
+personnelle et a été un acteur clé dans l’émergence de la culture
+<em>hacker</em>, de la <em>demoscene</em>, et de l’industrie du jeu
+vidéo telle qu’elle est aujourd’hui.</p>
+<h3 class="unnumbered"
+id="lien-entre-la-demoscene-et-lindustrie-des-jeux-vidéo">Lien entre la
+<em>demoscene</em> et l’industrie des jeux vidéo</h3>
+<p>L’émergence et la montée en popularité de la <em>demoscene</em> sont
+étroitement liées à l’essor des jeux vidéo. Dans les années 80, l’achat
+de jeux vidéo était souvent une décision risquée en raison de leur coût
+élevé et de l’absence de critiques ou de journalisme spécialisé pour
+guider les consommateurs. Sans avis ou évaluations disponibles, les
+joueurs se retrouvaient parfois déçus par la qualité des jeux qu’ils
+avaient achetés, découvrant des titres aux graphismes médiocres ou aux
+bugs gênants.</p>
+<p>La copie de jeux est devenue alors une pratique courante, d’autant
+plus facilitée par la nature des supports utilisés par le Commodore 64.
+Contrairement aux jeux sur consoles, les jeux du C64, souvent distribués
+sur cassette, étaient facilement dupliquables sans perte de qualité ou
+d’informations.</p>
+<h3 class="unnumbered" id="naissance-des-cracktros">Naissance des
+<em>cracktros</em></h3>
+<figure id="sanity">
+<img src="images/demoscene/demos/sani1.png" />
+<img src="images/demoscene/demos/sani2.png" />
+<img src="images/demoscene/demos/sani3.png" />
+<figcaption>Sanity - Elysium</figcaption>
+</figure>
+<p>Les jeux piratés circulaient largement, échangés pendant les cours
+d’école ou via courrier postal. Chaque copie comportait une introduction
+spécifique, créée par le <em>cracker</em><a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+responsable du piratage. Leur maîtrise de la programmation leur a permis
+de repousser les limites du Commodore 64. Plutôt que d’utiliser le
+langage BASIC, plus lent, les <em>crackers</em> se sont tournés vers
+l’assembleur, un langage de bas niveau permettant d’optimiser le code et
+d’accélérer considérablement l’exécution des programmes. Cette approche
+leur permettait d’obtenir des performances jusqu’à 30 fois supérieures,
+transformant ainsi la manière dont les jeux étaient perçus et joués sur
+le Commodore 64. Ils ont également expérimenté les capacités du C64 pour
+créer des images et des sons, créant ainsi des expériences
+audiovisuelles immersives. En utilisant le langage des mathématiques
+pour coder des programmes, ils ont ouvert la voie à l’expression
+artistique numérique.</p>
+<p>En plus de rendre les jeux gratuits, les <em>crackers</em> offraient
+des avantages tels que des vies infinies ou la suppression d’ennemis,
+permettant ainsi aux joueurs d’éviter les obstacles frustrants et de
+profiter pleinement de leur expérience de jeu. Fiers de leurs exploits,
+ces <em>crackers</em> intégraient fréquemment leurs initiales ou le nom
+de leur groupe au démarrage des jeux, que ce soit dans une liste de
+meilleurs scores ou à travers des éléments graphiques. Ces ajouts
+servaient de vitrine à leur talent et renforçaient l’identité de leur
+groupe au sein de la communauté.</p>
+<p>Ces introductions élaborées par les <em>crackers</em> pour mettre en
+avant leur talent et leur travail de contournement des mesures de
+protection des jeux sont nommées <em>cracktros</em><a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> (la
+contraction des mots <em>intro</em> et <em>crack</em>). Le
+<em>cracking</em> est devenu bien plus qu’une simple pratique de
+contournement : c’était une démonstration de compétence et d’expertise
+technique. Ces <em>crackers</em> étaient admirés au sein de la
+communauté pour leur capacité à maîtriser la machine et à offrir des
+versions optimisées des jeux. Au fil des années, ces <em>cracktros</em>
+ont évolué pour devenir de véritables œuvres d’art numérique, gagnant en
+sophistication et en complexité.</p>
+<h3 class="unnumbered" id="les-groupes-pionniers-du-cracking">Les
+groupes pionniers du <em>cracking</em></h3>
+<figure id="pheno">
+<img src="images/demoscene/demos/pheno1.png" />
+<img src="images/demoscene/demos/pheno2.png" />
+<img src="images/demoscene/demos/pheno3.png" />
+<figcaption>Phenomena- Enigma</figcaption>
+</figure>
+<p>L’année 1984 marque un tournant dans l’histoire des <em>crackers</em>
+et de la scène du piratage informatique. À cette époque, de nombreux
+groupes ont émergé, chacun avec sa propre spécialité et sa réputation
+dans le milieu. Parmi les plus influents, on retrouve des groupes comme
+TBC, connu pour avoir cracké des jeux populaires tels que « Kennedy
+Approach » ou « Crackman Crew ».</p>
+<p>Les membres de ces groupes n’étaient pas seulement experts en
+<em>cracking</em>, ils étaient aussi capables d’adapter les jeux NTSC<a
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> destinés au marché américain pour
+les rendre compatibles avec les systèmes PAL<a href="#fn7"
+class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+utilisés en Europe. Cette adaptation était essentielle pour permettre
+aux joueurs européens de profiter des jeux américains sur leurs machines
+locales.</p>
+<p>Outre TBC, d’autres groupes européens ont marqué le paysage du
+<em>cracking</em>. Au Royaume-Uni, Yak Society s’est distingué en
+crackant les jeux de l’éditeur Elite, tandis qu’en Allemagne, des
+groupes comme Section 8 et ABC ont également laissé leur empreinte.</p>
+<h3 class="unnumbered"
+id="le-rôle-central-des-swappers-dans-la-distribution">Le rôle central
+des <em>swappers</em> dans la distribution</h3>
+<p>La distribution de ces jeux piratés se réalisait de manière
+analogique, principalement par le biais de la voie postale. Les acteurs
+clés de cette dynamique étaient les <em>swappers</em><a href="#fn8"
+class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>,
+des individus passionnés qui avaient établi des réseaux de contacts à
+l’échelle mondiale. Ces échanges étaient le moteur de la circulation des
+<em>cracktros</em>, des jeux et des logiciels au sein de la communauté.
+À travers l’envoi de disquettes par courrier postal, ces
+<em>swappers</em> facilitaient la diffusion des créations artistiques,
+contribuant ainsi à la vitalité et à la croissance de la
+<em>demoscene</em>. Ces échanges ne se limitaient pas seulement à la
+distribution de contenus, mais renforçaient également les liens entre
+les membres de la communauté, créant un réseau solide et engagé autour
+de la passion commune pour la création numérique.</p>
+<h3 class="unnumbered"
+id="législation-et-évolution-technique">Législation et évolution
+technique</h3>
+<figure id="andromeda">
+<img src="images/demoscene/demos/andromeda1.png" />
+<img src="images/demoscene/demos/andromeda2.png" />
+<img src="images/demoscene/demos/andromeda3.png" />
+<figcaption>Nexus 7 - Andromeda</figcaption>
+</figure>
+<p>Les éditeurs de jeux ont rapidement réagi pour essayer de contrôler
+la diffusion de ces copies piratées alors qu’elles se propageaient. Au
+milieu des années 80, face à l’ampleur du phénomène, une législation a
+été mise en place en Europe et aux États-Unis visant à interdire toute
+modification, duplication ou distribution non autorisée de logiciels
+commerciaux.</p>
+<p>Cette réglementation visait à protéger les droits d’auteur des
+éditeurs et à décourager le piratage des jeux. Elle a marqué un tournant
+dans l’histoire de la communauté du Commodore 64, mettant fin à l’ère de
+la duplication libre et créant un contexte juridique plus contraignant
+pour les amateurs de jeux piratés et les <em>crackers</em>.</p>
+<p>Cette évolution légale a poussé certains membres de la communauté à
+s’orienter vers des pratiques plus créatives et légales, donnant
+naissance à la <em>demoscene</em> et à la création d’<em>intros</em><a
+href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a> originales, loin des pratiques de
+piratage. Malgré cela la créativité des <em>crackers</em> n’a pas été
+freinée. De nouvelles techniques ont rapidement émergé pour contourner
+les mesures de protection des jeux.</p>
+<p>La première méthode de <em>crack</em> qui a vu le jour était le
+<em>reset cracking</em>. Cette méthode était relativement simple : en
+appuyant sur le bouton de réinitialisation (le <em>reset</em>) du
+Commodore 64, le contenu de la mémoire restait intact, permettant ainsi
+aux <em>crackers</em> d’accéder au programme en cours d’exécution. En
+gelant le programme, ils étaient alors en mesure d’extraire et de
+modifier les données. Par la suite, des modules de gel sur support
+cartouche ont été développés. Ces cartouches offraient la possibilité de
+geler le système sans avoir besoin de réinitialiser l’ordinateur,
+rendant la manipulation encore plus aisée et rapide pour les
+<em>crackers</em>.</p>
+<p>Cette course à l’armement entre <em>crackers</em> et éditeurs a
+contribué à enrichir les compétences techniques de la communauté,
+ouvrant la voie à de nouvelles formes d’expression et à l’émergence de
+la <em>demoscene</em>.</p>
+<h3 class="unnumbered"
+id="cracking-et-élitisme-les-codes-de-la-culture-demoscene">Cracking et
+élitisme: les codes de la culture <em>demoscene</em></h3>
+<p>La culture du <em>cracking</em> a également développé ses propres
+codes et valeurs. L’élitisme et l’avant-gardisme en opposition aux
+<em>lamers</em><a href="#fn10" class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a> sont devenus des caractéristiques
+marquantes de la scène, reflétant la volonté des membres de se démarquer
+et de repousser les limites de ce qui est possible. De nombreux
+adolescents ont été inspirés par cette culture et ont rêvé de devenir un
+jour un <em>cracker</em> de renom, contribuant ainsi à la croissance et
+à la pérennité de la <em>demoscene</em>.</p>
+<h3 class="unnumbered"
+id="la-réponse-de-lélite-de-la-scène-aux-surveillances-du-fbi">La
+réponse de l’élite de la scène aux surveillances du FBI</h3>
+<figure id="crio">
+<img src="images/demoscene/demos/crio1.png" />
+<img src="images/demoscene/demos/crio2.png" />
+<img src="images/demoscene/demos/crio3.png" />
+<figcaption>The Silents &amp; Crionics - Hardwired</figcaption>
+</figure>
+<p>Face à la surveillance accrue du FBI (<em>Federal Bureau of
+Investigation</em>), les <em>crackers</em> ont rapidement ajusté leurs
+méthodes pour échapper à la détection. L’élite<a href="#fn11"
+class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>
+de la scène a développé des techniques pour brouiller les pistes et
+rendre leur communication moins suspecte.</p>
+<p>Le FBI mettait en place des systèmes de surveillance des lignes
+téléphoniques en utilisant des ordinateurs pour détecter certains
+mots-clés ou phrases suspects. Afin d’éviter cette surveillance, les
+<em>crackers</em> ont commencé à utiliser ce qu’on appelle maintenant le
+<em>leet speak</em><a href="#fn12" class="footnote-ref" id="fnref12"
+role="doc-noteref"><sup>12</sup></a>. Ils ont altéré les mots et les
+phrases de façon à les rendre méconnaissables pour les systèmes de
+surveillance.</p>
+<p>À titre d’exemple, le terme <em>wares</em>, faisant référence aux
+logiciels piratés, a été modifié en <em>warez</em>, tandis que la lettre
+« O » a été substituée par le chiffre zéro (« 0 »). D’autres
+substitutions étaient également courantes, comme remplacer la lettre « A
+» par le chiffre quatre (« 4 »). Certains ont même utilisé des
+caractères spéciaux ou des lettres de l’alphabet non latin pour
+brouiller davantage les pistes.</p>
+<p>Cette pratique du <em>leet speak</em> n’était pas seulement une
+manière de contourner la surveillance, mais aussi un moyen pour la
+communauté de se démarquer et de créer un langage propre à leur culture.
+Cette forme d’argot électronique a perduré au fil du temps et est encore
+utilisée aujourd’hui, notamment dans les pseudonymes et les
+communications sur Internet. Elle témoigne de l’ingéniosité et de la
+résilience de la <em>demoscene</em> face aux défis et aux menaces
+externes.</p>
+<h3 class="unnumbered"
+id="dun-monde-de-cracking-à-lindustrie-légale">D’un monde de
+<em>cracking</em> à l’industrie légale</h3>
+<p>Malgré leurs débuts dans le piratage et le <em>cracking</em>, ces
+experts en informatique ont su mettre leurs compétences au service de
+l’industrie de manière légale et productive. Leur expérience dans le
+<em>cracking</em> leur a souvent donné un avantage unique, leur
+permettant de comprendre en profondeur les systèmes et les logiciels, et
+de contribuer de manière significative au développement technologique et
+informatique. Cette transition illustre bien la complexité et la dualité
+de la scène du <em>cracking</em>, où les frontières entre le légal et
+l’illégal, entre le jeu et le travail, sont parfois floues. Leurs
+compétences sont particulièrement prisées dans des secteurs comme le
+développement de jeux vidéo, l’animation, les effets spéciaux et la
+post-production.</p>
+<p>Bon nombre de professionnels éminents de l’industrie du jeu vidéo et
+de l’animation ont fait leurs premiers pas dans la scène <em>demo</em>.
+Cette dernière offre en effet une plateforme unique pour
+l’expérimentation, le <em>feedback</em> en temps réel de la communauté
+et le perfectionnement des compétences. Elle constitue ainsi un tremplin
+exceptionnel pour une carrière réussie dans les domaines créatifs et
+technologiques.</p>
+<p>Les groupes DICE<a href="#fn13" class="footnote-ref" id="fnref13"
+role="doc-noteref"><sup>13</sup></a> et Remedy<a href="#fn14"
+class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a>
+illustrent parfaitement comment des groupes de <em>demosceners</em> ont
+su transformer leur passion et leur talent en des carrières accomplies
+au sein de l’industrie du jeu vidéo. Ces <em>success stories</em>
+soulignent l’impact considérable que la créativité et l’innovation de la
+scène <em>demo</em> peuvent avoir, transcendant ainsi les limites
+traditionnelles de cette communauté. En outre, il est important de
+souligner que de nombreux musiciens issus de la scène <em>demo</em> ont
+saisi des opportunités professionnelles dans la composition de bandes
+sonores pour des titres emblématiques tels qu’Assassin’s Creed ou la
+série Unreal.</p>
+<h2 id="évolution-de-la-demoscene-vers-les-demoparties">Évolution de la
+<em>demoscene</em> vers les <em>demoparties</em></h2>
+<p>Nous allons maintenant aborder les divers facteurs qui ont contribué
+à l’évolution de la <em>demoscene</em>, ainsi qu’examiner de plus près
+les techniques utilisées.</p>
+<figure id="dreamtime">
+<img src="images/demoscene/demos/dreamtime1.png" />
+<img src="images/demoscene/demos/dreamtime2.png" />
+<img src="images/demoscene/demos/dreamtime3.png" />
+<figcaption>Dreamtime - Profik</figcaption>
+</figure>
+<h3 class="unnumbered"
+id="lessor-des-demoparties-et-la-structuration-de-la-communauté">L’essor
+des <em>demoparties</em> et la structuration de la communauté</h3>
+<p>Si à l’origine l’objectif principal était de réussir le « crackage »
+d’un jeu, il est rapidement devenu évident que la création
+d’<em>intros</em> de qualité était tout aussi cruciale pour se démarquer
+au sein de la communauté. C’est aussi vers le milieu des années 80 que
+la scène a véritablement pris de l’ampleur, se structurant de manière
+plus formelle. Les groupes de <em>crackers</em> ont commencé à se
+rencontrer physiquement en organisant des rencontres et des
+rassemblements. Ces <em>demoparties</em> étaient l’occasion pour les
+passionnés de l’informatique et de la <em>demo</em> de se rencontrer, de
+partager leurs créations, et d’échanger des astuces ou des techniques de
+programmation.</p>
+<p>Les <em>demos</em> se distinguent des <em>cracktros</em> par leur
+complexité accrue et leur autonomie vis-à-vis des logiciels originaux.
+Elles ne se contentaient plus de présenter les capacités de
+<em>cracking</em> des groupes, mais devenaient de véritables œuvres
+d’art combinant programmation, design et musique pour offrir une
+expérience immersive.</p>
+<h3 class="unnumbered"
+id="lévolution-artistique-des-signatures-des-crackers">L’évolution
+artistique des signatures des <em>crackers</em></h3>
+<p>L’évolution des signatures des <em>crackers</em> reflète bien la
+transition de la scène du simple <em>cracking</em> vers la création
+d’<em>intros</em> plus élaborées. Initialement, la signature était une
+manière discrète pour le <em>cracker</em> de laisser sa marque sur une
+copie piratée. Cette signature, souvent composée de trois lettres,
+rappelait les initiales utilisées dans les jeux d’arcade pour marquer
+les meilleurs scores. Elle servait à identifier l’auteur du
+<em>crack</em>, tout en affirmant sa réputation au sein de la
+communauté. Cependant, avec l’émergence de la <em>demoscene</em>, cette
+simple signature a rapidement évolué. Les <em>crackers</em> ont commencé
+à utiliser les <em>intros</em> comme un média pour afficher leur
+pseudonyme de manière plus graphique et artistique. Au lieu de se
+limiter à une combinaison de trois lettres, ils ont intégré leur
+pseudonyme dans des <em>logos</em> aux animations complexes (voir <a
+href="#logo" data-reference-type="ref"
+data-reference="logo">1.9</a>).</p>
+<figure id="logo">
+<img src="images/demoscene/demos/logo1.png" />
+<img src="images/demoscene/demos/logo2.png" />
+<img src="images/demoscene/demos/logo3.png" />
+<figcaption><em>Logos</em> évolués</figcaption>
+</figure>
+<h3 class="unnumbered"
+id="limpact-de-lamiga-sur-la-diversité-des-approches-dans-la-demoscene">L’impact
+de l’Amiga sur la diversité des approches dans la
+<em>demoscene</em></h3>
+<p>En parallèle l’Amiga a révolutionné l’informatique personnelle en se
+positionnant comme un précurseur du multimédia, surpassant ses
+concurrents de l’époque. Son avance technologique, illustrée par l’Amiga
+1000 lancé en 1986 (voir <a href="#am1000" data-reference-type="ref"
+data-reference="am1000">[am1000]</a>), a introduit des innovations
+majeures comme le son numérique, les graphismes couleur et un système
+multitâche révolutionnaire pour l’époque. Malgré ces avancées, le coût
+élevé de l’Amiga a initialement freiné son adoption parmi les
+<em>demosceners</em>, en particulier par rapport au Commodore 64.</p>
+<figure id="chaos1">
+<img src="images/demoscene/amiga1000.png" />
+<img src="images/demoscene/amiga500.png" />
+<img src="images/demoscene/amiga1200.png" />
+<figcaption>Amiga 1200 - 1992</figcaption>
+</figure>
+<p>L’introduction de l’Amiga a été un catalyseur pour la création d’une
+scène spécifique autour de cette plateforme. Elle a vu l’émergence de
+groupes dédiés, chacun avec ses spécialités : <em>crackers</em> et
+<em>demomakers</em>. Deux courants distincts se sont formés : l’un axé
+sur les programmes DOS<a href="#fn15" class="footnote-ref" id="fnref15"
+role="doc-noteref"><sup>15</sup></a> et l’autre sur les
+<em>trackloaders</em><a href="#fn16" class="footnote-ref" id="fnref16"
+role="doc-noteref"><sup>16</sup></a>.</p>
+<p>Les programmes DOS sur Amiga étaient souvent caractérisés par une
+approche plus structurée et formelle, avec une présentation plus
+traditionnelle et un enchaînement linéaire des effets. A contrario,
+plutôt que de charger toutes les données nécessaires pour une
+<em>demo</em> au début de l’exécution, le <em>trackloader</em> charge
+les données progressivement à partir du disque pendant que la
+<em>demo</em> est en cours d’exécution. Cette méthode permet d’offrir
+une expérience plus fluide et dynamique, car elle réduit les temps de
+chargement et permet un enchaînement plus naturel des effets et des
+scènes.</p>
+<p>L’essor de l’Amiga a marqué un tournant dans la création musicale au
+sein de la <em>demoscene</em>. Les premiers logiciels utilisés, appelés
+<em>trackers</em>, rappellent les outils du C64 mais offraient la
+capacité de jouer des sons numérisés. Cette évolution a ouvert la porte
+à des compositions musicales plus complexes et sophistiquées,
+enrichissant ainsi la qualité sonore des <em>demos</em>.</p>
+<p>Aujourd’hui, les créateurs de <em>demos</em> ont accès à des
+logiciels de production musicale plus avancés, les mêmes qui sont
+utilisés pour produire les morceaux diffusés à la radio ou en
+<em>streaming</em>. Cependant, les contraintes de taille imposées par
+les <em>demos</em> de 4 ou 64 Ko limitent l’utilisation de ces sons
+numérisés.</p>
+<h3 class="unnumbered" id="la-synthèse-sonore-dans-la-demoscene">La
+synthèse sonore dans la <em>demoscene</em></h3>
+<p>Face à ces limitations, les artistes reviennent souvent aux
+techniques ancestrales de la <em>demoscene</em>. Ils créent des sons en
+partant de simples formes d’ondes, utilisant des méthodes de synthèse
+sonore pour générer des mélodies et des rythmes envoûtants. Ces
+approches minimalistes rappellent les débuts de la musique sur le C64,
+mais avec l’ingéniosité et l’expérience acquises au fil des années, les
+artistes parviennent à produire des compositions étonnamment riches et
+variées, démontrant ainsi que la créativité peut s’épanouir même dans
+les contraintes les plus strictes.</p>
+<figure id="drumman">
+<img src="images/demoscene/demos/drumman1.png" />
+<img src="images/demoscene/demos/drumman2.png" />
+<img src="images/demoscene/demos/drumman3.png" />
+<figcaption>Drum Man Demo</figcaption>
+</figure>
+<h3 class="unnumbered"
+id="les-diskmags-confèrent-à-la-scène-une-dimension-plus-structurée">Les
+<em>diskmags</em> confèrent à la scène une dimension plus
+structurée</h3>
+<p>Les <em>demos</em> Amiga ont élargi leurs horizons en incorporant des
+diaporamas, des albums musicaux et des <em>diskmags</em>, se démarquant
+clairement par leur qualité supérieure par rapport aux <em>diskmags</em>
+du C64. En plus des échanges directs entre individus, des médias
+physiques ont commencé à voir le jour pour soutenir et documenter la
+scène.</p>
+<figure id="diskmag2">
+<img src="images/demoscene/demos/diskmag1.png" style="height:1.5in" />
+<img src="images/demoscene/demos/diskmag2.png" style="height:1.5in" />
+<figcaption>R.A.W. #6, un exemple de l’âge d’or des <em>diskmags</em>.
+(Amiga 500, 1993)</figcaption>
+</figure>
+<p>Des magazines papier et des fanzines numériques ont été créés (les
+<em>diskmags</em><a href="#fn17" class="footnote-ref" id="fnref17"
+role="doc-noteref"><sup>17</sup></a>), offrant un espace d’expression
+aux membres de la communauté et permettant de partager des actualités,
+des tutoriels, des critiques et des analyses (voir <a href="#diskmag1"
+data-reference-type="ref" data-reference="diskmag1">[diskmag1]</a>, <a
+href="#diskmag1" data-reference-type="ref"
+data-reference="diskmag1">[diskmag1]</a> et <a href="#diskmagUI2"
+data-reference-type="ref" data-reference="diskmagUI2">1.13</a>).</p>
+<figure id="diskmagUI2">
+<img src="images/demoscene/demos/diskmag3.png" />
+<img src="images/demoscene/demos/diskmag4.png" />
+<img src="images/demoscene/demos/diskmag5.png" />
+<figcaption>Interface d’un diskmag</figcaption>
+</figure>
+<p>Ces publications ont joué un rôle important dans la diffusion des
+idées et des valeurs de la <em>demoscene</em> et du <em>hacking</em>.
+Des titres comme Sex’n’Crime, Mamba et Fölény sont devenus
+emblématiques. Ces publications, enrichies de nouvelles, de critiques de
+<em>demos</em>, de classements et d’informations sur les
+<em>copyparties</em>, ont conféré à la scène une dimension plus
+structurée et sérieuse.</p>
+<h3 class="unnumbered"
+id="compétition-et-prestige-dans-la-demoscene">Compétition et prestige
+dans la <em>demoscene</em></h3>
+<figure id="chaos2">
+<img src="images/demoscene/demos/chaos1.png" />
+<img src="images/demoscene/demos/chaos2.png" />
+<img src="images/demoscene/demos/chaos3.png" />
+<figcaption>CHAOS Mega demo - Fi-Re Crew</figcaption>
+</figure>
+<p>C’est durant cette période qu’un véritable esprit compétitif a pris
+forme au sein de la communauté des <em>demosceners</em>. Une course à
+l’exploit était engagée : qui serait le premier à pirater un jeu ? Qui
+concevrait l’<em>intro</em> la plus marquante ? L’esprit de compétition
+a incité les créateurs à repousser les limites techniques de leurs
+machines. Les effets visuels se sont multipliés et complexifiés:
+animations de sprites, rotations, rebonds, effets de miroir, et bien
+d’autres encore. La musique n’était pas en reste, devenant de plus en
+plus sophistiquée.</p>
+<p>Au-delà de la compétition purement technique, l’ego et le prestige
+ont également pris une place importante dans cet univers. Chaque groupe
+se devait de présenter un <em>cracktro</em> de qualité, non seulement
+pour montrer leur expertise technique, mais aussi pour asseoir leur
+réputation au sein de la communauté.</p>
+<h2 id="différents-types-de-compétition">Différents types de
+compétition</h2>
+<h3 class="unnumbered" id="introduction">Introduction</h3>
+<figure id="mega">
+<img src="images/demoscene/demos/mega1.png" />
+<img src="images/demoscene/demos/mega2.png" />
+<img src="images/demoscene/demos/mega3.png" />
+<figcaption>Megademo - Red Sector Inc</figcaption>
+</figure>
+<p>La dimension communautaire joue un rôle tout aussi essentiel que le
+talent individuel dans la dynamique de la <em>demoscene</em>,
+contribuant à nourrir un esprit créatif et collaboratif. L’événement
+phare de cette communauté est la <em>demoparty</em>, une manifestation
+dédiée à la célébration de la culture informatique. Lors de ces
+rassemblements, les participants ont l’opportunité de mettre en lumière
+leurs compétences et créations, d’échanger des connaissances et des
+idées, et de rencontrer des individus animés par la même passion. Les
+œuvres produites y sont présentées dans diverses catégories et soumises
+à l’appréciation du public et des pairs, renforçant ainsi l’esprit de
+compétition et de camaraderie qui anime la <em>demoscene</em>.</p>
+<p>Concourir lors d’une <em>demoparty</em> représente une expérience
+unique pour les <em>demomakers</em>. C’est l’occasion de voir leur
+travail projeté sur un grand écran, sublimé par une bande sonore
+diffusée sur un système son de qualité, devant un auditoire attentif et
+passionné. Ce moment de partage et de reconnaissance collective est
+souvent source d’inspiration et de motivation pour les participants.</p>
+<figure id="product">
+<img src="images/demoscene/demos/prod1.png" />
+<img src="images/demoscene/demos/prod2.png" />
+<img src="images/demoscene/demos/prod3.png" />
+<figcaption>The Product - Farbrausch</figcaption>
+</figure>
+<p>Cette course à l’innovation et à la créativité a contribué à faire de
+la <em>demoscene</em> un mouvement dynamique et en constante évolution,
+où chaque nouvelle réalisation repousse un peu plus les frontières de ce
+qui est techniquement possible. Ce qui pouvait impressionner une année
+semblait déjà dépassé l’année suivante. Cet esprit compétitif a conduit
+à la création de diverses catégories, chacune présentant ses propres
+contraintes spécifiques.</p>
+<h3 class="unnumbered"
+id="intros-4k-lart-de-la-compacité"><em>Intros</em> 4k : l’art de la
+compacité</h3>
+<p>L’introduction de la catégorie 4k a marqué une étape significative
+dans l’évolution de la <em>demoscene</em>. Contrairement aux productions
+plus volumineuses qui disposent de plusieurs mégaoctets pour exprimer
+leur vision artistique, les productions 4k se limitent à seulement 4
+kilooctets de données. Cette contrainte sévère en taille a poussé les
+<em>demosceners</em> à optimiser les possibilités de compression pour
+produire des œuvres imposantes malgré leur petite taille.</p>
+<p>Malgré les contraintes, les <em>demomakers</em> redoublent d’astuces
+pour y parvenir. Bien que les résultats soient souvent d’une qualité
+graphique médiocre, il est important de souligner que la taille de ces
+<em>intros</em> est même inférieure à celle d’un document Word vide. Le
+format 4k a donc donné naissance à des <em>demos</em> qui démontrent la
+puissance et le génie des <em>demosceners</em>, en montrant qu’il est
+possible de réaliser des prouesses artistiques et techniques avec des
+ressources limitées.</p>
+<h3 class="unnumbered" id="we-are-new-par-fairlight">« We Are New » par
+Fairlight</h3>
+<p>Une des <em>intros</em> 4k les plus célèbres sur Commodore 64 est «
+We Are New » par Fairlight (voir <a href="#wnew"
+data-reference-type="ref" data-reference="wnew">1.17</a>). Cette
+<em>intro</em> a été saluée pour son ingéniosité technique et son
+esthétique, tout en tenant dans la contrainte de seulement 4 kilooctets
+de données.</p>
+<figure id="wnew">
+<img src="images/demoscene/demos/wnew1.png" />
+<img src="images/demoscene/demos/wnew2.png" />
+<img src="images/demoscene/demos/wnew3.png" />
+<figcaption>« We Are New » - Fairlight</figcaption>
+</figure>
+<h3 class="unnumbered"
+id="lintro-64k-un-équilibre-parfait-entre-créativité-et-optimisation">L’<em>Intro</em>
+64k : un équilibre parfait entre créativité et optimisation</h3>
+<p>Les <em>intros</em> 64k occupent une place particulière dans la
+<em>demoscene</em>, se positionnant entre les <em>intros</em> 4k et les
+<em>demos</em> <em>full size</em>. Elles offrent une limite de
+64 kilooctets de données, soit bien plus que les 4 kilooctets des
+<em>intros</em> 4k, mais nettement moins que les <em>demos</em> <em>full
+size</em> qui peuvent s’étendre sur plusieurs mégaoctets.</p>
+<p>Ici aussi, le défi des <em>intros</em> 64k est de marier créativité
+artistique et optimisation technique dans un espace de stockage
+restreint. Ce format permet aux <em>demosceners</em> de concevoir des
+œuvres plus élaborées, avec des graphismes, des effets sonores et des
+animations de qualité supérieure, tout en restant dans une taille de
+fichier modeste. L’objectif est là encore d’exploiter au maximum les 64
+kilooctets disponibles.</p>
+<p>L’<em>intro</em> 64k se distingue par son système similaire aux
+<em>intros</em> 4k, mais avec une limite étendue à 65535 octets. Ce
+format offre aux codeurs une plus grande marge de manœuvre créative,
+leur permettant de collaborer étroitement avec des graphistes et des
+musiciens pour créer des <em>intros</em> marquantes. C’est pourquoi
+l’<em>intro</em> 64k est l’une des catégories les plus appréciées des
+<em>demomakers</em>, juste derrière la catégorie reine : la <em>demo
+full size</em>.</p>
+<h3 class="unnumbered" id="fr-08-.the-.product-par-farbrausch">« fr-08:
+.the .product » par Farbrausch</h3>
+<p>Une des <em>intros</em> 64k les plus célèbres et influentes dans la
+<em>demoscene</em> est « fr-08: .the .product » réalisée par Farbrausch
+en 2000 (voir <a href="#farb" data-reference-type="ref"
+data-reference="farb">1.18</a>). Cette <em>intro</em> a marqué un
+tournant dans la catégorie des <em>intros</em> 64k, démontrant une
+optimisation et une créativité jamais vues auparavant.</p>
+<p>« fr-08: .the .product » a été distinguée non seulement pour ses
+effets visuels, mais aussi pour sa musique et sa synchronisation. Elle a
+repoussé les limites de ce qui était considéré comme possible dans un
+fichier de seulement 64 kilooctets, influençant de nombreux
+<em>demomakers</em> et définissant de nouvelles normes pour les
+<em>intros</em> 64k. Cette <em>intro</em> est souvent citée comme un
+exemple de ce que la <em>demoscene</em> peut réaliser.</p>
+<figure id="farb">
+<img src="images/demoscene/demos/farb1.png" />
+<img src="images/demoscene/demos/farb2.png" />
+<img src="images/demoscene/demos/farb3.png" />
+<figcaption>fr-08: .the .product - Farbrausch</figcaption>
+</figure>
+<h3 class="unnumbered"
+id="au-delà-des-contraintes-les-demos-full-size">Au-delà des contraintes
+: les <em>demos full size</em></h3>
+<p>La catégorie <em>demo full size</em> par ses productions les plus
+ambitieuses et les plus abouties , constitue le cœur battant de la
+<em>demoscene</em>. À l’inverse des <em>intros</em> 4k et 64k, soumises
+à des contraintes de taille de fichier plus strictes, les <em>demos full
+size</em> se libèrent de toute limite prédéfinie en termes de mémoire ou
+de temps d’exécution.</p>
+<p>Ce format offre aux <em>demosceners</em> un espace de création
+illimité pour déployer tout leur talent et leur savoir-faire. Les
+<em>demos full size</em> exploitent ainsi pleinement les capacités des
+machines sur lesquelles elles sont exécutées, que ce soit en termes de
+graphismes, d’animations, d’effets sonores ou de musique. Elles
+représentent souvent le résultat d’un travail d’équipe collaboratif, où
+artistes, codeurs, graphistes et musiciens fusionnent leurs compétences
+pour donner vie à une vision artistique commune.</p>
+<p>Les productions de cette catégorie peuvent durer plusieurs minutes et
+offrent une expérience riche et immersive aux spectateurs. Elles peuvent
+raconter une histoire, présenter un univers visuel ou sonore unique, ou
+encore mettre en avant des techniques de programmation et de design
+nouvelles. La taille traditionnelle des <em>demos</em> est limitée à
+4Mo, bien que cette limite soit souvent dépassée, comme l’illustre la
+<em>demo</em> de plus de 12Mo réalisée par Cocoon &amp; Syndrome pour «
+Shad » (voir <a href="#shad" data-reference-type="ref"
+data-reference="shad">1.19</a>).</p>
+<figure id="shad">
+<img src="images/demoscene/demos/shad1.png" />
+<img src="images/demoscene/demos/shad2.png" />
+<img src="images/demoscene/demos/shad3.png" />
+<figcaption>Shad - Cocoon &amp; Syndrome</figcaption>
+</figure>
+<p>En somme, la catégorie <em>demo full size</em> est le terrain de jeu
+privilégié des <em>demosceners</em> pour exprimer leur créativité sans
+limites, repoussant constamment les frontières de l’art numérique et de
+la programmation, tout en offrant une liberté d’expression artistique
+inégalée.</p>
+<h3 class="unnumbered"
+id="lart-visuel-au-cœur-de-la-demoscene-la-catégorie-gfx">L’art visuel
+au cœur de la <em>demoscene</em> : la catégorie <em>gfx</em></h3>
+<figure id="deities">
+<img src="images/demoscene/demos/deities1.png" />
+<img src="images/demoscene/demos/deities2.png" />
+<img src="images/demoscene/demos/deities3.png" />
+<figcaption>Deities - MFX</figcaption>
+</figure>
+<p>La catégorie <em>gfx</em> (<em>graphics</em>) dans la
+<em>demoscene</em> se centre sur la création graphique et artistique,
+mettant en lumière le talent des graphistes qui élaborent des œuvres
+visuelles pour les <em>demos</em>, <em>intros</em> et autres productions
+de la <em>demoscene</em>. Pour exceller dans ce domaine, les graphistes
+doivent posséder une variété de compétences. Ils doivent maîtriser des
+logiciels de dessin et de retouche d’image, tout en ayant une
+compréhension approfondie des contraintes techniques propres à la
+<em>demoscene</em>, telles que la gestion des palettes de couleurs et
+l’optimisation des tailles de fichiers.</p>
+<p>Les productions <em>gfx</em> peuvent prendre diverses formes, qu’il
+s’agisse d’images fixes, d’animations ou même de séquences vidéo. Elles
+sont souvent évaluées sur des critères tels que leur originalité, leur
+qualité artistique, leur technique et leur intégration harmonieuse dans
+la production globale. La catégorie <em>gfx</em> est une catégorie
+permettant aux graphistes de la <em>demoscene</em> de mettre en avant
+leur talent, de partager leur passion pour l’art graphique et de
+contribuer à enrichir les productions communautaires avec des
+visuels.</p>
+<p>Cette catégorie <em>gfx</em> est elle-même subdivisée en plusieurs
+sous-catégories, telles que les 8bits (256 couleurs) et les 32bits. Il
+est important de noter que l’utilisation de photos scannées est
+généralement mal vue, voire interdite.</p>
+<h3 class="unnumbered"
+id="la-musique-des-pixels-la-catégorie-mod-de-la-demoscene">La musique
+des <em>pixels</em> : la catégorie <em>mod</em> de la
+<em>demoscene</em></h3>
+<figure id="ephi">
+<img src="images/demoscene/demos/ephi1.png" />
+<img src="images/demoscene/demos/ephi2.png" />
+<img src="images/demoscene/demos/ephi3.png" />
+<figcaption>Ephidrena - Concrete</figcaption>
+</figure>
+<p>La catégorie <em>mod</em> (module) dans la <em>demoscene</em> est
+dédiée à la création de musique et de sons, qui sont essentiels pour
+enrichir l’expérience audio des <em>demos</em> ou des <em>intros</em>.
+Les modules sont des fichiers spéciaux contenant à la fois des données
+musicales et des instructions pour les instruments, permettant ainsi de
+reproduire des compositions musicales variées. Ces créations sont le
+résultat du travail des musiciens et <em>sound designers</em> de la
+<em>demoscene</em> qui utilisent des <em>trackers</em><a href="#fn18"
+class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a>,
+des logiciels spécifiques à la <em>demoscene</em>, pour composer leurs
+morceaux.</p>
+<p>Les compétences nécessaires pour exceller dans cette catégorie sont
+nombreuses et incluent une connaissance approfondie des principes de la
+composition musicale, ainsi qu’une maîtrise des techniques spécifiques à
+la création de <em>mods</em>. Parmi ces techniques, l’utilisation des
+<em>trackers</em> et la manipulation des échantillons sonores sont
+particulièrement importantes. Les <em>mods</em> peuvent varier
+grandement en style et en genre, allant de la musique électronique à la
+musique classique, en passant par le <em>rock</em>, le <em>jazz</em> et
+bien d’autres. Ils sont évalués sur des critères tels que leur
+originalité, leur qualité musicale, leur technique et leur intégration
+dans la production globale.</p>
+<p>Autrefois, cette catégorie comprenait des compétitions Modules 4
+voies et <em>multichannels</em>, mais elle a évolué avec l’arrivée du
+format MP3, qui a en grande partie remplacé les compétitions
+traditionnelles. Le concept des modules, initialement développé par les
+<em>demomakers</em> sur Atari et porté sur diverses plateformes comme
+l’Amiga, le PC ou l’Amstrad, est fondé sur l’enregistrement de petits
+sons pour composer une partition. Des logiciels comme FastTracker2 ou
+Scream Tracker sont utilisés pour créer ces partitions en manipulant les
+sons enregistrés à différentes vitesses pour reproduire les notes
+musicales (voir <a href="#fasttracker00" data-reference-type="ref"
+data-reference="fasttracker00">[fasttracker00]</a> et <a
+href="#screamtracker00" data-reference-type="ref"
+data-reference="screamtracker00">1.22</a>). Certains musiciens de la
+<em>demoscene</em>, tels que Skaven, Clawz et Necro, sont reconnus comme
+des références dans cet art.</p>
+<figure id="screamtracker00">
+<img src="images/demoscene/fasttracker00.png" style="height:1.5in" />
+<img src="images/demoscene/screamtracker00.png" style="height:1.5in" />
+<figcaption>Scream Tracker</figcaption>
+</figure>
+<p>Dans les compétitions, les modules 4 voies permettent de jouer
+jusqu’à 4 instruments simultanément, tandis que les
+<em>multichannels</em> offrent une plus grande capacité, souvent limitée
+à 32 ou 64 portées. Cette catégorie <em>mod</em> offre ainsi une
+plateforme aux musiciens et <em>sound designers</em> de la
+<em>demoscene</em> pour exprimer leur talent, partager leur passion pour
+la musique et contribuer à enrichir les productions de la communauté
+<em>demoscene</em> avec des compositions audio.</p>
+<h3 class="unnumbered"
+id="au-delà-des-frontières-la-catégorie-wild">Au-delà des frontières :
+la catégorie <em>wild</em></h3>
+<figure id="sreal">
+<img src="images/demoscene/demos/futur1.png" />
+<img src="images/demoscene/demos/futur2.png" />
+<img src="images/demoscene/demos/futur3.png" />
+<figcaption>Future Crew - Second Reality</figcaption>
+</figure>
+<p>Au fil du temps, l’évolution de la <em>demoscene</em> a engendré
+l’émergence de formes artistiques nouvelles, difficiles à catégoriser au
+sein des catégories traditionnelles comme la musique, les images ou les
+<em>demos</em>. De cette évolution est née la catégorie <em>wild</em>,
+qui s’est imposée comme un terrain d’expression artistique non
+conventionnel.</p>
+<p>Les concours <em>wild</em> offrent souvent des spectacles en direct
+où les créateurs montent sur scène pour dévoiler leurs œuvres. Ces
+présentations peuvent varier d’un microcontrôleur récupéré d’un
+réfrigérateur à des performances artistiques plus extravagantes. Malgré
+leur caractère parfois déconcertant, ces productions sont généralement
+le fruit d’un travail sérieux et méticuleux, combinant effets visuels et
+compositions musicales.</p>
+<p>Aucune machine, aussi insolite soit-elle, n’échappe à l’exploration
+artistique de la <em>demoscene</em>. De la simple calculatrice de poche
+aux installations monumentales, tout peut être utilisé comme vecteur
+d’expression artistique, reflétant ainsi la diversité de la
+communauté.</p>
+<h2 id="techniques-visuelles-dans-la-demoscene">Techniques visuelles
+dans la <em>demoscene</em></h2>
+<figure id="panic">
+<img src="images/demoscene/demos/futur4.png" />
+<img src="images/demoscene/demos/futur5.png" />
+<img src="images/demoscene/demos/futur6.png" />
+<figcaption>Future Crew - Panic</figcaption>
+</figure>
+<p>Nous allons maintenant étudier quelques techniques fréquemment
+utilisées afin d’appréhender leur impact visuel. Parmi les méthodes
+adoptées par les <em>demosceners</em> pour leurs créations, nous avons
+précédemment mentionné l’usage de la programmation en assembleur par les
+<em>crackers</em> pour optimiser à la fois les performances et la taille
+des <em>demos</em>. De plus, sur le Commodore 64, des fonctionnalités
+<em>hardware</em> souvent méconnues ont été découvertes par les
+programmeurs astucieux de la <em>demoscene</em>. Parmi ces trouvailles,
+on peut citer la capacité à éliminer la bordure de l’écran grâce aux
+<em>raster interrupts</em>, ou encore l’utilisation d’un quatrième canal
+pour le son.</p>
+<h3 class="unnumbered"
+id="synchronisation-visuelle-les-raster-interrupts">Synchronisation
+visuelle: les <em>raster interrupts</em></h3>
+<p>Les <em>raster interrupts</em> sont une technique utilisée dans la
+<em>demoscene</em>, notamment sur le Commodore 64, pour synchroniser des
+effets visuels avec le balayage de l’écran (<em>raster</em>). Le
+Commodore 64, comme de nombreux autres ordinateurs de cette époque,
+utilise un balayage <em>raster</em> pour afficher les images à l’écran,
+c’est-à-dire qu’il dessine l’écran ligne par ligne, de haut en bas. Un
+<em>raster interrupt</em> intervient lorsqu’un programme interrompt le
+processus normal de balayage <em>raster</em> pour exécuter un code
+spécifique.</p>
+<p>Dans la <em>demoscene</em>, les <em>raster interrupts</em> sont
+souvent utilisés pour créer des effets graphiques avancés, comme des
+<em>rasterbars</em>, des effets de <em>scrolling</em> et d’autres
+animations complexes comme le <em>waving</em>.</p>
+<h3 class="unnumbered" id="dépasser-les-limites-de-la-palette">Dépasser
+les limites de la palette</h3>
+<p>Bien que le Commodore 64 puisse afficher seulement 16 couleurs dont
+seulement cinq nuances de gris, y compris le noir et le blanc, certaines
+<em>demos</em> parvenaient à afficher plus de couleurs que cette palette
+de base. Une méthode pour y parvenir est d’alterner rapidement entre
+deux écrans légèrement différents pour mélanger les couleurs, exploitant
+la persistance rétinienne<a href="#fn19" class="footnote-ref"
+id="fnref19" role="doc-noteref"><sup>19</sup></a>. Cette technique est
+exposée dans « Dream Time » du groupe Profik, où deux buffers sont
+alternés 60 fois par seconde pour créer l’illusion de couleurs
+supplémentaires.</p>
+<h3 class="unnumbered" id="les-variations-avancées-du-scroll">Les
+variations avancées du <em>scroll</em></h3>
+<p>Un <em>scroll</em> fait référence à une technique où le texte ou les
+graphiques défilent horizontalement ou verticalement à l’écran. Cette
+technique était largement utilisée pour afficher des crédits, des
+messages ou des graphismes artistiques dans les <em>demos</em> et les
+<em>intros</em>. Initialement simples textes défilants, ils ont évolué
+vers des versions DYPP (<em>Different Y Pixel Position</em>) ondulantes,
+des <em>stretch-scrollers</em> irréguliers, des <em>scrollers</em>
+inspirés de Star Wars, ou encore des <em>scrollers</em> en 3D virtuelle
+autour d’une sphère.</p>
+<h3 class="unnumbered"
+id="vagues-et-ondulations-à-lécran-le-waving">Vagues et ondulations à
+l’écran: le <em>waving</em></h3>
+<p>Le <em>waving</em> désigne un effet graphique simulant des vagues ou
+des ondulations sur l’écran. Cet effet est souvent obtenu en manipulant
+les <em>pixels</em> ou en modifiant les lignes de balayage de manière à
+créer une illusion de mouvement fluide et ondulant.</p>
+<h3 class="unnumbered"
+id="maîtriser-les-lignes-de-balayage-le-rasterbar">Maîtriser les lignes
+de balayage: le <em>rasterbar</em></h3>
+<p>Un <em>rasterbar</em> fait référence à un effet visuel créé en
+manipulant les lignes de balayage (<em>rasters</em>) de l’écran. L’effet
+est généralement réalisé en changeant dynamiquement la couleur ou la
+luminosité des lignes de balayage pour créer des motifs ou des
+animations. Ces effets exploitent les caractéristiques techniques des
+anciens ordinateurs, comme le Commodore 64, qui permettaient un contrôle
+précis des lignes de balayage.</p>
+<h3 class="unnumbered" id="simuler-le-mouvement-le-bouncing">Simuler le
+mouvement: le <em>bouncing</em></h3>
+<p><em>Bouncing</em> fait référence à un effet visuel où un objet ou du
+texte semble rebondir de haut en bas ou de gauche à droite à l’écran.
+Cet effet est souvent utilisé pour ajouter du dynamisme et de
+l’animation à une <em>demo</em> ou à une <em>intro</em>, donnant ainsi
+une sensation de mouvement et d’interaction.</p>
+<h3 class="unnumbered"
+id="le-logo-dans-la-demoscene-comme-signature-artistique">Le
+<em>logo</em> dans la <em>demoscene</em> comme signature artistique</h3>
+<p>Un <em>logo</em> désigne généralement un élément graphique
+représentant le nom ou l’identité visuelle d’un groupe de
+<em>demosceners</em>. Ce <em>logo</em> est souvent intégré dans les
+<em>intros</em>, les <em>demos</em> ou les <em>cracktros</em> pour
+identifier le groupe ou le collectif derrière la production. Il est
+conçu pour être distinctif et mémorisable, reflétant souvent le style et
+l’esthétique du groupe.</p>
+<figure id="lemon">
+<img src="images/demoscene/demos/lemon1.png" />
+<img src="images/demoscene/demos/lemon2.png" />
+<img src="images/demoscene/demos/lemon3.png" />
+<figcaption>Lemonade - Fairlight</figcaption>
+</figure>
+<h1 id="la-demoscene-aujourdhui">La <em>demoscene</em> aujourd’hui</h1>
+<h2 id="fascination-pour-les-machines-emblématiques">Fascination pour
+les machines emblématiques</h2>
+<p>La <em>demoscene</em> d’aujourd’hui est marquée par l’usage
+persistant d’ordinateurs obsolètes tels que le Commodore 64, le Plus 4,
+le ZX Spectrum et l’Amiga. Ces machines, bien que technologiquement
+dépassées et dotées de limitations parfois drastiques datant de
+plusieurs décennies, continuent d’inspirer et de servir de supports à
+des réalisations.</p>
+<p>Cette persistance reflète la popularité indéniable de ces machines
+emblématiques. Le Commodore 64, par exemple, conserve son titre de
+champion en termes de créativité au sein de la <em>demoscene</em>, avec
+un impressionnant catalogue de plus de 18 000 productions recensées. Ce
+chiffre surpasse même celui des créations pour PC, qui s’élève à environ
+14 000, mettant en évidence la fascination continue pour ces anciennes
+plateformes.</p>
+<p>Cette inclination pour les machines d’antan ne se résume pas à de la
+nostalgie. Elle témoigne d’une volonté de repousser les limites, de
+défier les contraintes techniques et de valoriser l’ingéniosité
+nécessaire pour créer des <em>demos</em> sur des plateformes aux
+capacités limitées. De plus, l’utilisation de ces machines historiques
+dans la création contemporaine renforce le lien entre les générations de
+<em>demomakers</em> et perpétue l’héritage culturel de la
+<em>demoscene</em>.</p>
+<h2 id="vers-une-automatisation-de-la-création-artistique">Vers une
+automatisation de la création artistique</h2>
+<p>Aujourd’hui, deux approches dominantes structurent la création
+d’<em>intros</em> ou de <em>demos</em> sur PC. La première, plus
+traditionnelle, implique une programmation intégrale de chaque élément
+de la <em>demo</em> à partir de zéro. En revanche, la seconde repose sur
+l’utilisation d’outils de création de <em>demos</em> spécialement
+élaborés par les programmeurs au sein du groupe.</p>
+<p>Dans le passé, la réalisation d’objets 3D exigeait un processus
+manuel méticuleux. Imaginons la conception de la lettre « D » en trois
+dimensions : elle débutait par un croquis détaillé sur papier
+millimétré, suivi de l’identification minutieuse de chaque point du
+dessin à l’aide d’une grille. Ces coordonnées étaient ensuite
+introduites dans un programme pour générer le code source nécessaire à
+la modélisation de l’objet.</p>
+<p>Cependant, cette méthode laborieuse comportait des désavantages
+manifestes, notamment en termes de répétitivité et de complexité. Ainsi,
+la conception de programmes spécialisés automatisant la génération du
+code source est rapidement devenue une alternative attrayante. Cette
+automatisation présente des avantages considérables : elle optimise le
+temps de création, réduit les erreurs humaines et améliore l’efficacité
+globale du processus de modélisation 3D (voir <a href="#devtool00"
+data-reference-type="ref" data-reference="devtool00">2.1</a>).</p>
+<figure id="devtool00">
+<img src="images/demoscene/demos/devtool1.png" />
+<img src="images/demoscene/demos/devtool2.png" />
+<img src="images/demoscene/demos/devtool3.png" />
+<figcaption>Interface d’un outil sur mesure pour le développement de
+<em>demos</em></figcaption>
+</figure>
+<p>Ces outils, développés par les <em>demosceners</em> eux-mêmes, se
+distinguent des solutions commerciales comme Photoshop, 3D Studio ou
+Premiere. Ils fusionnent ces fonctionnalités en offrant une gamme
+étendue de fonctionnalités, de la génération de textures procédurales à
+l’édition de scènes animées, le tout intégré dans une interface unifiée.
+De plus, ils permettent un visionnage immédiat de la <em>demo</em> par
+un simple appui sur la barre d’espace, facilitant ainsi une de création
+fluide et intuitive.</p>
+<p>Le développement de ces outils sur mesure par les
+<em>demosceners</em> s’explique par leur orientation vers la création
+d’<em>intros</em> 64 Ko, imposant des contraintes strictes de taille de
+fichier. Ces solutions spécialisées répondent donc précisément à leurs
+exigences en matière de taille et de fonctionnalités.</p>
+<p>Dans leur démarche créative, les <em>demosceners</em> privilégient
+l’utilisation de données brutes plutôt que de gros fichiers
+préexistants. Ils se basent sur des paramètres et algorithmes pour
+générer les éléments visuels et sonores nécessaires à la <em>demo</em>,
+permettant ainsi de produire des œuvres tout en conservant des tailles
+de fichier minimales. Cette approche algorithmique leur permet d’obtenir
+des rendus dans des tailles de fichier réduites, sans dépendre de
+fichiers volumineux.</p>
+<p>Cependant, il convient de souligner que tous les <em>demosceners</em>
+ne privilégient pas nécessairement la création d’outils sur mesure.
+Certains préférant une approche plus traditionnelle, débutent chaque
+projet de manière autonome et intègrent progressivement des effets et
+des fonctionnalités pour parvenir au résultat final, sans le support
+d’un outil de création dédié.</p>
+<figure id="lotus">
+<img src="images/demoscene/demos/start1.png" />
+<img src="images/demoscene/demos/start2.png" />
+<img src="images/demoscene/demos/start3.png" />
+<figcaption>The Black Lotus - Starstruck</figcaption>
+</figure>
+<h2 id="apprécier-la-profondeur-technique-des-demos">Apprécier la
+profondeur technique des <em>demos</em></h2>
+<figure id="crest">
+<img src="images/demoscene/demos/kresto1.png" />
+<img src="images/demoscene/demos/kresto2.png" />
+<img src="images/demoscene/demos/kresto3.png" />
+<figcaption>Krestology - Crest</figcaption>
+</figure>
+<p>Pour pleinement apprécier une <em>demo</em>, il est nécessaire pour
+le public d’avoir une connaissance des limitations techniques ainsi que
+des capacités intrinsèques de l’ordinateur concerné. Cette compréhension
+permet non seulement d’évaluer l’exploit technique réalisé par les
+<em>demomakers</em>, mais également d’appréhender la subtilité et
+l’ingéniosité de leur création.</p>
+<p>Les personnes non familières avec les contraintes techniques peuvent
+ne pas être impressionnées par des réalisations en apparence simples,
+comme un cube en rotation. Toutefois, il est important de souligner que
+des fonctionnalités aussi basiques peuvent représenter des prouesses
+considérables sur une plateforme donnée, surpassant souvent les attentes
+initiales des concepteurs du système.</p>
+<p>Pour qu’une <em>demo</em> soit véritablement mémorable et appréciée,
+elle doit être ancrée dans un concept artistique solide. Cette
+combinaison d’excellence technique et de créativité conceptuelle est ce
+qui distingue les <em>demos</em> les plus marquantes.</p>
+<h2 id="lesprit-déquipe-et-la-synergie-créative">L’esprit d’équipe et la
+synergie créative</h2>
+<p>La collaboration est au cœur de la <em>demoscene</em> moderne. Les
+<em>demomakers</em> travaillent souvent en équipe, combinant leurs
+talents et leurs compétences. Cette collaboration permet non seulement
+de partager des connaissances et des idées, mais aussi de repousser les
+limites de ce qui est techniquement et artistiquement possible.</p>
+<p>La communauté <em>demoscene</em> reste un élément essentiel de cette
+culture. Les festivals de <em>demos</em>, les compétitions et les
+rencontres entre <em>demomakers</em> continuent d’être des moments forts
+de la vie de la <em>demoscene</em>, permettant aux artistes de partager
+leurs œuvres, d’échanger des <em>feedbacks</em> et de célébrer ensemble
+leur passion commune.</p>
+<p>Les <em>demos</em> sont généralement le fruit du travail d’une
+équipe, avec un membre dédié aux graphismes, un autre à la musique, et
+plusieurs autres à la programmation, suivant ainsi un schéma similaire à
+celui de la création de jeux vidéo ou de la réalisation de films.</p>
+<p>Pour ces créateurs, la véritable récompense réside dans la
+reconnaissance et l’appréciation de leurs pairs au sein de la communauté
+<em>demo</em>. Bien que leurs œuvres puissent atteindre un niveau
+d’excellence reconnu à l’échelle internationale, l’aspiration principale
+de ces artistes n’est pas tant d’atteindre un public étendu ou de
+rechercher la célébrité, mais plutôt de créer des œuvres qui résonnent
+profondément avec ceux qui comprennent et apprécient véritablement la
+culture unique de la <em>demoscene</em>. C’est cette connexion spéciale
+avec une communauté dédiée qui donne une signification et une valeur
+inestimables à leur travail.</p>
+<figure id="dck">
+<img src="images/demoscene/demos/dck00.png" />
+<img src="images/demoscene/demos/dck01.png" />
+<img src="images/demoscene/demos/dck02.png" />
+<figcaption>Demo Construction Kit - D.C.K.</figcaption>
+</figure>
+<h2 id="lart-de-limprovisation-numérique-le-livecoding">L’art de
+l’improvisation numérique : le <em>livecoding</em></h2>
+<p>Après avoir exploré les racines profondes de la <em>demoscene</em>,
+nous nous tournons désormais vers une discipline plus contemporaine : le
+<em>livecoding</em><a href="#fn20" class="footnote-ref" id="fnref20"
+role="doc-noteref"><sup>20</sup></a>. Mon mémoire se veut centré sur la
+pratique du <em>livecoding</em>, avec une attention particulière portée
+à la programmation en direct de <em>fragment shaders</em>. Pour une
+introduction rapide, un <em>shader</em> est un programme destiné à être
+exécuté sur le GPU, déterminant la manière dont une image est affichée à
+l’écran. Des détails plus approfondis seront abordés dans un chapitre
+ultérieur.</p>
+<h3 class="unnumbered" id="le-shader-showdown-lart-du-livecoding">Le
+<em>shader showdown</em> : l’art du <em>livecoding</em></h3>
+<p>L’épicentre de cette pratique est le <em>shader showdown</em>, une
+compétition phare dans le cadre des <em>demoparties</em>. Durant ces
+événements, les programmeurs de <em>shaders</em> s’affrontent sur scène,
+accompagnés de DJs, pour coder en temps réel devant un public nombreux.
+Cette compétition emblématique a vu le jour lors de la WeCan en 2013,
+une <em>demoparty</em> polonaise. Depuis, de nombreuses
+<em>demoparties</em> ont intégré le <em>shader showdown</em> à leur
+programmation. Notamment, la Revision<a href="#fn21"
+class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a>
+se distingue comme la plus grande <em>demoparty</em> au niveau
+mondial.</p>
+<h3 class="unnumbered"
+id="le-shader-showdown-la-compétition-du-livecoding">Le <em>shader
+showdown</em> : la compétition du <em>livecoding</em></h3>
+<p>Un <em>shader showdown</em>, c’est un tournoi où les participants ont
+25 minutes pour coder <em>from scratch</em> un <em>shader</em>, et tout
+cela en direct. Le code et sa représentation visuelle s’affichent sur
+des écrans géants pendant qu’un DJ s’occupe de la musique. Le public
+vote à la fin pour son <em>shader</em> préféré. Le thème peut-être
+imposé pour rajouter de la complexité, mais parfois les participants
+sont complètement libres de leurs créations.</p>
+<p>Une participation à un <em>shader showdown</em> demande des
+connaissances et de l’entraînement. De la même manière qu’un peintre
+doit connaître des techniques, maîtriser ses couleurs, les propriétés
+des différents types de peinture qu’il emploie, et surtout s’entraîner
+pour devenir un maître de la peinture à l’huile, il faut de
+l’entraînement et creuser l’aspect technique, mathématique, pour
+progresser en <em>shader coding</em> et faire cela en <em>live</em>
+devant un public, que ce soit dans le cadre d’un <em>showdown</em> ou
+d’un <em>VJing</em><a href="#fn22" class="footnote-ref" id="fnref22"
+role="doc-noteref"><sup>22</sup></a>.</p>
+<h3 class="unnumbered"
+id="le-défi-du-livecoding-créativité-et-technique-sur-scène">Le défi du
+<em>livecoding</em> : créativité et technique sur scène</h3>
+<p>La compétition ressemble à la création d’une démo 4k en direct sur
+scène, accompagnée d’une bande son mixée par un DJ. Il est étonnant de
+constater qu’un effet visuellement frappant peut être obtenu avec
+seulement 5 lignes de code dans un <em>shader</em>, et c’est sans doute
+cette possibilité qui a été perçue par les <em>demosceners</em> lors de
+la mise en place du premier <em>showdown</em>.</p>
+<p>Cette pratique est extrêmement exigeante, nécessitant une solide
+mémoire, des compétences techniques avancées, une capacité à gérer la
+pression, et surtout, une créativité spontanée. La communauté des
+<em>demosceners</em> reconnaît et valorise ces compétences, en témoigne
+leur engouement pour cette compétition.</p>
+<p>Les participants nourrissent une véritable passion pour l’expérience
+scénique, captant le rythme de la musique dans une ambiance
+électrisante. Une appréhension naturelle précède toujours leur montée
+sur scène. Néanmoins, une fois les premières marches menant vers la
+scène franchies, ils ressentent un apaisement, percevant la phase la
+plus stressante comme étant derrière eux. Ils peuvent alors pleinement
+profiter de cet instant, se montrer tels qu’ils sont sur scène et capter
+l’adhésion du public, que ce soit pour leur art ou leur personnalité,
+s’immergeant ainsi totalement dans le présent.</p>
+<p>En règle générale, les <em>livecoders</em> s’entraînent intensivement
+chez eux sur leurs <em>shaders</em>, les mémorisant parfois, tout en
+incorporant des éléments flexibles pour un environnement de base
+adaptable. Cette méthode leur permet d’improviser lors des compétitions,
+ajoutant ainsi une dimension imprévisible à la fois pour eux et pour le
+public.</p>
+<h3 class="unnumbered"
+id="la-collaboration-et-le-partage-au-cœur-du-livecoding">La
+collaboration et le partage au cœur du <em>livecoding</em></h3>
+<p>L’apprentissage du <em>livecoding</em> s’appuie principalement sur la
+transmission orale et le partage de connaissances au sein de la
+communauté <em>open source</em>. Des personnalités comme Inigo Quilez<a
+href="#fn23" class="footnote-ref" id="fnref23"
+role="doc-noteref"><sup>23</sup></a> ainsi que des collectifs
+artistiques comme le Cookie Collective jouent un rôle prépondérant en
+partageant généreusement leurs connaissances. Cette culture de partage
+et de collaboration en <em>open source</em> au sein de la communauté
+d’art numérique en temps réel est essentielle pour favoriser son
+expansion et toucher un public plus large.</p>
+<h3 class="unnumbered"
+id="livecoding-le-retour-aux-sources"><em>Livecoding</em> : le retour
+aux sources</h3>
+<p>En général, ce n’est pas tant la <em>demoscene</em> en elle-même qui
+constitue le moyen d’expression privilégié des <em>livecoders</em>, mais
+plutôt le <em>shader coding</em>. C’est au sein de la <em>demoscene</em>
+qu’ils ont été initiés à cette discipline et qu’ils en ont découvert
+l’existence. Au sein du <em>livecoding</em>, deux aspects distincts
+retiennent l’attention des <em>demosceners</em>.</p>
+<p>Premièrement, l’exploration du code bas niveau pour en comprendre les
+nuances. Cette démarche renforce leur expertise technique, à la fois
+dans la conception artistique et dans leurs activités professionnelles.
+Deuxièmement, la programmation sur des plateformes anciennes leur offre
+l’opportunité de renouer avec des objets de leur enfance, tout en
+adoptant une perspective adulte. La <em>demoscene</em> modifie leur
+perception de leurs compétences, les incitant à voir chaque machine
+comme une aire de jeu potentielle.</p>
+<h3 class="unnumbered" id="le-défi-du-code-golfing">Le défi du <em>code
+golfing</em></h3>
+<p>Au sein même de la discipline de <em>livecoding</em>, une pratique
+spécifique se démarque : le <em>code golfing</em><a href="#fn24"
+class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a>.
+L’objectif est de concevoir un shader en utilisant le moins de
+caractères possible, avec le défi supplémentaire de le rendre compatible
+avec la limite de caractères d’un <em>tweet</em>.</p>
+<p>Le terme <em>golfing</em> est inspiré de la quête d’efficacité et de
+concision, similaire à l’objectif d’un golfeur de terminer un parcours
+avec le moins de coups. Dans le domaine des <em>shaders</em>, cela se
+traduit par la création d’un <em>fragment shader</em>, qui atteint une
+qualité visuelle avec le minimum de caractères de code. Cette pratique
+sollicite la concision, la créativité et la maîtrise du langage de
+programmation du développeur.</p>
+<h3 class="unnumbered"
+id="outils-clés-pour-le-développement-de-shaders">Outils clés pour le
+développement de <em>shaders</em></h3>
+<p>Dans le vaste éventail d’outils disponibles pour l’exploration et le
+développement des <em>shaders</em>, quatre plateformes se distinguent
+particulièrement : Shadertoy, Bonzomatic, KodeLife et ShaderEditor.</p>
+<h4 class="unnumbered"
+id="shadertoy-plateforme-de-création-et-communauté-de-shaders">Shadertoy
+: plateforme de création et communauté de <em>shaders</em></h4>
+<p>Le site le plus populaire dédié à la création de <em>shaders</em> est
+Shadertoy, créé par Inigo Quilez. Il permet de créer des
+<em>shaders</em> en ligne, et son aspect communautaire donne la
+possibilité de consulter le code d’autres utilisateurs, et donc
+d’apprendre de nouvelles façons de coder (voir <a href="#shadertoy000"
+data-reference-type="ref" data-reference="shadertoy000">2.5</a>).
+Shadertoy s’appuie sur l’API WebGL pour effectuer un rendu graphique
+dans le navigateur à l’aide du GPU. Dans Shadertoy, on ne peut écrire
+que dans le fragment shader, le vertex shader ne nous est pas
+accessible. On démarre avec un <em>plane</em> qui représente la surface
+de l’écran comme seule géométrie de départ. Ainsi si l’on veut
+représenter des scènes 3D, on doit s’appuyer sur l’algorithme de <em>ray
+marching</em> et les SDFs pour représenter les formes. À noter qu’un
+simple copier-coller ne suffira pas si l’on veut exporter notre shader
+vers un logiciel tiers (Unreal, TouchDesigner, Blender...). En effet il
+existe différents langages de <em>shaders</em> (GLSL, HLSL, Cg,
+Metal...), qui malgré leurs grandes similarités syntaxiques diffèrent
+sur quelques détails. Dès que l’on a saisi les subtilités de chaque
+langage, il devient très facile de traduire ces codes « à la main ». En
+général il s’agira de traduire les types, de rajouter des points (« »)
+aux flottants etc. Shadertoy reste donc un excellent moyen pour
+prototyper des <em>shaders</em> en vue de les utiliser dans d’autres
+logiciels ensuite, mais surtout il permet de partager ses créations avec
+une communauté qui n’hésite pas à laisser des commentaires pertinents
+pour corriger notre code.</p>
+<figure id="shadertoy000">
+<img src="images/demoscene/shadertoy01.PNG" />
+<img src="images/demoscene/shadertoy00.PNG" />
+<figcaption>Shadertoy</figcaption>
+</figure>
+<h4 class="unnumbered" id="bonzomatic">Bonzomatic</h4>
+<p>Bonzomatic se distingue comme un logiciel <em>open source</em>
+accessible sur <a
+href="https://github.com/Gargaj/Bonzomatic">GitHub</a>. Conçu
+principalement par Gargaj, il se caractérise par une approche qui
+privilégie le développement hors ligne tout en offrant une flexibilité
+remarquable. Sa philosophie <em>open source</em> favorise l’implication
+de la communauté dans son développement, ce qui lui confère une
+dynamique constante et une capacité d’évolution continue.</p>
+<figure id="outilsshad01">
+<p><img src="images/livecoding/outilsshad00.jpeg" alt="image" /> <span
+id="outilsshad00" label="outilsshad00"></span></p>
+<p><img src="images/livecoding/outilsshad01.png" alt="image" /> <span
+id="outilsshad01" label="outilsshad01"></span></p>
+<figcaption>Bonzomatic</figcaption>
+</figure>
+<p>Sa particularité réside dans ses règles strictes appliquées lors des
+compétitions. En effet, Bonzomatic impose des contraintes spécifiques,
+telles que l’interdiction d’accéder à Internet et l’impossibilité
+d’importer des textures. Ces limitations visent à mettre les
+compétiteurs sur un pied d’égalité, en les incitant à exploiter au
+maximum leurs compétences et leur créativité sans recourir à des
+ressources externes.</p>
+<h4 class="unnumbered" id="kodelife">KodeLife</h4>
+<p>KodeLife s’impose comme l’outil idéal lorsqu’il s’agit d’intégrer des
+contrôleurs pour des performances <em>live</em> ou des événements
+interactifs. Sa fonctionnalité permettant de gérer les entrées en temps
+réel facilite la liaison entre le <em>shader</em> et les dispositifs de
+contrôle. Cette capacité dynamique ouvre la porte à une créativité
+accrue, permettant aux développeurs de concevoir des expériences
+immersives et interactives de manière plus intuitive. Sa facilité
+d’utilisation pour l’intégration du MIDI en a fait un choix privilégié
+pour mes expérimentations (voir <a href="#outilsshadK"
+data-reference-type="ref" data-reference="outilsshadK">2.7</a>).</p>
+<figure id="outilsshadK">
+<p><img src="images/livecoding/outilsshad02.png" alt="image" /> <span
+id="outilsshad02" label="outilsshad02"></span></p>
+<p><img src="images/livecoding/outilsshad03.png" alt="image" /> <span
+id="outilsshad03" label="outilsshad03"></span></p>
+<figcaption>KodeLife</figcaption>
+</figure>
+<h4 class="unnumbered" id="shadereditor">ShaderEditor</h4>
+<p>Enfin, pour les moments où l’inspiration surgit en déplacement, comme
+lors d’un voyage en train, ShaderEditor sur tablette Android devient un
+allié précieux. Cette application permet de coder des <em>shaders</em>
+de manière intuitive et efficace sur des appareils mobiles, offrant
+ainsi une flexibilité qui s’adapte au mode de vie nomade de nombreux
+développeurs et artistes. Sa capacité à coder efficacement des
+<em>shaders</em> sur le pouce permet de capturer rapidement les idées
+créatives, quel que soit l’endroit ou le moment où l’inspiration surgit
+(voir <a href="#outilsshadSE" data-reference-type="ref"
+data-reference="outilsshadSE">2.8</a>).</p>
+<figure id="outilsshadSE">
+<p><img src="images/livecoding/outilsshad04.png" style="height:5cm"
+alt="image" /> <span id="outilsshad04" label="outilsshad04"></span></p>
+<p><img src="images/livecoding/outilsshad05.png" style="height:5cm"
+alt="image" /> <span id="outilsshad05" label="outilsshad05"></span></p>
+<figcaption>ShaderEditor</figcaption>
+</figure>
+<h4 class="unnumbered" id="desmos-graphtoy">Desmos / Graphtoy</h4>
+<p>Je souhaitais également explorer une catégorie d’outils indispensable
+: les outils de visualisation graphique des fonctions mathématiques.
+Dans le cadre du développement de <em>shaders</em>, ces sites sont
+essentiels pour expérimenter avec des équations et des fonctions
+mathématiques, en vue de créer des effets visuels complexes. En effet,
+lors de la conception d’un shader, le développeur est constamment engagé
+dans le processus de « mappage » de valeurs d’un intervalle vers un
+autre, et dans l’affinement de l’évolution de ces valeurs. Des
+plateformes telles que Desmos et Graphtoy offrent également une
+meilleure compréhension des transformations géométriques comme les
+translations, les rotations et les mises à l’échelle (voir <a
+href="#desmos00" data-reference-type="ref"
+data-reference="desmos00">[desmos00]</a> et <a href="#graphtoy00"
+data-reference-type="ref" data-reference="graphtoy00">2.9</a>).</p>
+<figure id="graphtoy00">
+<p><img src="images/demoscene/desmos00.PNG" alt="image" /> <span
+id="desmos00" label="desmos00"></span></p>
+<p><img src="images/demoscene/graphtoy00.PNG" alt="image" /> <span
+id="graphtoy00" label="graphtoy00"></span></p>
+<figcaption>Graphtoy</figcaption>
+</figure>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Un <em>strip</em> désigne généralement une bande
+d’images ou de vignettes disposées dans un ordre séquentiel, souvent
+utilisée dans le contexte des bandes dessinées.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Le patrimoine culturel immatériel, selon l’UNESCO, se
+réfère aux pratiques, représentations, expressions, connaissances et
+savoir-faire - ainsi que les instruments, objets, artefacts et espaces
+culturels associés - que les communautés, les groupes et, dans certains
+cas, les individus reconnaissent comme faisant partie de leur patrimoine
+culturel.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>La RAM (<em>Random Access Memory</em>) est une forme de
+mémoire volatile utilisée par les ordinateurs pour stocker des données
+temporaires qui peuvent être rapidement lues et écrites par le
+processeur et d’autres périphériques.<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Le terme <em>cracker</em> désigne une personne
+spécialisée dans la suppression ou la contournement des protections de
+logiciels, principalement pour les jeux vidéo ou les applications.<a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Un <em>cracktro</em> est une courte animation ou
+introduction visuelle qui apparaît avant le lancement d’un jeu vidéo ou
+d’un logiciel piraté.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>NTSC (<em>National Television System Committee</em>) est
+un système de codage couleur utilisé dans les émissions de télévision et
+de vidéo analogiques en Amérique du Nord, au Japon et dans certaines
+autres régions.<a href="#fnref6" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>PAL (<em>Phase Alternating Line</em>) est un système de
+codage couleur utilisé dans les émissions de télévision et de vidéo
+analogiques dans de nombreuses régions, notamment en Europe, en
+Australie, en Chine et en Afrique.<a href="#fnref7"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Les <em>swappers</em> échangent généralement des
+<em>demos</em>, des <em>intros</em>, des musiques, des graphiques et
+d’autres types de productions créatives via des supports physiques comme
+des disquettes ou des cassettes, ou encore via des services en ligne
+lorsque l’Internet est devenu plus accessible.<a href="#fnref8"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Une <em>intro</em> (abréviation de « introduction ») est
+une petite production <em>demo</em>, souvent de courte durée, conçue
+pour montrer les compétences et la créativité d’un groupe ou d’un
+individu. Contrairement aux <em>demos</em> complètes qui peuvent durer
+plusieurs minutes, les <em>intros</em> sont généralement plus courtes,
+parfois limitées à quelques dizaines de secondes, et se concentrent sur
+un effet ou une idée particulière.<a href="#fnref9"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Le terme <em>lamer</em> est généralement utilisé de
+manière péjorative pour décrire quelqu’un qui prétend avoir des
+compétences ou des connaissances qu’il ne possède pas réellement.<a
+href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>L’élite fait référence aux individus ou groupes qui se
+distinguent par leurs compétences techniques, leur innovation, et leur
+contribution significative à la culture et à l’art de la
+<em>demoscene</em>.<a href="#fnref11" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Le <em>leet speak</em> (ou <em>l33t speak</em>) est un
+langage codé utilisant des substitutions de lettres, des chiffres et des
+symboles spéciaux pour remplacer les lettres originales, rendant la
+communication plus cryptique et réservée à ceux qui connaissent ce
+langage.<a href="#fnref12" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>DICE, ou Digital Illusions Creative Entertainment, est
+un studio de développement de jeux vidéo basé en Suède. Fondé en 1992
+par Olof Gustafsson et Markus Nyström, le studio est surtout connu pour
+ses franchises à succès comme « Battlefield », « Mirror’s Edge » et «
+Star Wars Battlefront ».<a href="#fnref13" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>Remedy Entertainment est un studio finlandais de jeux
+vidéo connu pour ses jeux narratifs innovants tels que « Max Payne », «
+Alan Wake », « Quantum Break » et « Control ». Situé à Espoo, il est
+reconnu pour ses histoires captivantes et sa maîtrise de la narration
+interactive.<a href="#fnref14" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>Un « programme DOS » ne se réfère pas au système
+d’exploitation MS-DOS que l’on trouve sur les PC, mais plutôt à un type
+de <em>demo</em> spécifique conçu pour l’Amiga. Ces <em>demos</em>
+étaient généralement exécutées à partir du Workbench, l’environnement
+graphique de l’Amiga, plutôt que de démarrer directement depuis un
+disque bootable.<a href="#fnref15" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>Un <em>trackloader</em> désigne une technique de
+chargement de données utilisée pour produire des <em>demos</em> plus
+fluides et interactives.<a href="#fnref16" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>Les <em>diskmags</em> sont des magazines numériques
+interactifs destinés à la communauté de la <em>demoscene</em>. Ils sont
+généralement composés de plusieurs sections, y compris des articles, des
+critiques, des interviews, des classements, et parfois même des
+<em>demos</em> ou des <em>intros</em> intégrées.<a href="#fnref17"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>Le fonctionnement d’un <em>tracker</em> est basé sur
+une interface de suivi de partitions, où chaque piste représente un
+instrument ou un échantillon. Les utilisateurs peuvent placer des notes,
+définir des effets et ajuster divers paramètres pour chaque piste à
+l’aide d’un clavier ou d’une interface graphique.<a href="#fnref18"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>La persistance rétinienne fait référence à la capacité
+de l’œil humain à percevoir une image pendant un court laps de temps
+après que l’image originale ait disparu. Cette caractéristique est
+exploitée dans la création de <em>demos</em> pour produire des effets
+visuels fluides et dynamiques, en utilisant des techniques telles que le
+changement rapide d’images ou la manipulation de la luminosité et des
+couleurs.<a href="#fnref19" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>Le <em>livecoding</em> est une pratique qui consiste à
+improviser de la musique ou des visuels par l’utilisation d’un langage
+de programmation.<a href="#fnref20" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p>La Revision est une <em>demoparty</em> annuelle qui se
+tient traditionnellement à Pâques depuis 2011, à Saarbrücken, la
+principale ville de la Sarre, dans le sud-ouest de l’Allemagne.<a
+href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p>Le <em>VJing</em> est une forme d’art visuel en direct
+qui implique la manipulation et la projection en temps réel d’images
+visuelles pour accompagner la musique lors de performances en direct,
+telles que des concerts ou des événements artistiques.<a href="#fnref22"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p>Inigo Quilez est une figure emblématique du graphisme
+généré par ordinateur et du <em>livecoding</em>.<a href="#fnref23"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p>Le <em>code golfing</em> est un défi de programmation
+visant à réaliser un programme fonctionnel avec un minimum de
+caractères.<a href="#fnref24" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

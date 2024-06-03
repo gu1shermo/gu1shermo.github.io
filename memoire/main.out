@@ -1,0 +1,57 @@
+\BOOKMARK [0][-]{Doc-Start}{Remerciements}{}% 1
+\BOOKMARK [0][-]{Doc-Start}{Pr\351ambule}{}% 2
+\BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 3
+\BOOKMARK [0][-]{chapter.2}{2 Demoscene: origine et \351volution}{}% 4
+\BOOKMARK [1][-]{section.2.1}{2.1 Pr\351ambule}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{2.2 Introduction \340 la demo}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{2.3 Origines de la demoscene}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{2.4 \311volution de la demoscene vers les demoparties}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.5}{2.5 Diff\351rents types de comp\351tition}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.6}{2.6 Techniques visuelles dans la demoscene}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{3 La demoscene aujourd'hui}{}% 11
+\BOOKMARK [1][-]{section.3.1}{3.1 Fascination pour les machines embl\351matiques}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{3.2 Vers une automatisation de la cr\351ation artistique}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.3}{3.3 Appr\351cier la profondeur technique des demos}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.4}{3.4 L'esprit d'\351quipe et la synergie cr\351ative}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.5}{3.5 L'art de l'improvisation num\351rique : le livecoding}{chapter.3}% 16
+\BOOKMARK [0][-]{chapter.4}{4 Le pipeline graphique}{}% 17
+\BOOKMARK [1][-]{section.4.1}{4.1 Introduction}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.2}{4.2 \311tapes du pipeline graphique : du vertex au fragment shader}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.3}{4.3 Conclusion}{chapter.4}% 20
+\BOOKMARK [0][-]{chapter.5}{5 La pratique du livecoding: techniques fondamentales}{}% 21
+\BOOKMARK [1][-]{section.5.1}{5.1 Introduction}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.2}{5.2 L'espace uv}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.3}{5.3 Les fonctions de distance sign\351e}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.4}{5.4 Exploration de la construction d'une SDF}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.5}{5.5 Le fonctionnement du ray marching}{chapter.5}% 26
+\BOOKMARK [1][-]{section.5.6}{5.6 Rep\350re \253 main gauche \273 VS. rep\350re \253 main droite \273}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.7}{5.7 Calcul de la normale}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.8}{5.8 Mod\350les d'\351clairage}{chapter.5}% 29
+\BOOKMARK [1][-]{section.5.9}{5.9 Les trois composantes du mod\350le de Phong}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.10}{5.10 Discriminer les objets}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.11}{5.11 D'autres mani\350res de discriminer les objets}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.12}{5.12 Mise en place d'une cam\351ra}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.13}{5.13 R\351p\351tition de domaine}{chapter.5}% 34
+\BOOKMARK [0][-]{chapter.6}{6 La pratique du livecoding : techniques avanc\351es}{}% 35
+\BOOKMARK [1][-]{section.6.1}{6.1 Coordonn\351es polaires}{chapter.6}% 36
+\BOOKMARK [1][-]{section.6.2}{6.2 Post-traitement : application d'une texture sur un objet}{chapter.6}% 37
+\BOOKMARK [1][-]{section.6.3}{6.3 Le bruit}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.4}{6.4 Le Fractional Brownian Motion}{chapter.6}% 39
+\BOOKMARK [1][-]{section.6.5}{6.5 Les ombres}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.6}{6.6 Le glow}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.7}{6.7 Conclusion}{chapter.6}% 42
+\BOOKMARK [0][-]{chapter.7}{7 Musique algorithmique}{}% 43
+\BOOKMARK [0][-]{chapter.8}{8 Exp\351rimentations: vers une interaction avec la musique}{}% 44
+\BOOKMARK [1][-]{section.8.1}{8.1 Introduction}{chapter.8}% 45
+\BOOKMARK [1][-]{section.8.2}{8.2 Intensifs M1}{chapter.8}% 46
+\BOOKMARK [1][-]{section.8.3}{8.3 Intensifs M2}{chapter.8}% 47
+\BOOKMARK [1][-]{section.8.4}{8.4 Le projet du m\351moire}{chapter.8}% 48
+\BOOKMARK [1][-]{section.8.5}{8.5 Le protocole MIDI}{chapter.8}% 49
+\BOOKMARK [0][-]{chapter.9}{9 Conclusion}{}% 50
+\BOOKMARK [-1][-]{figure.caption.237}{Bibliographie}{}% 51
+\BOOKMARK [-1][-]{figure.caption.237}{Webographie}{}% 52
+\BOOKMARK [-1][-]{figure.caption.237}{Liste des illustrations}{}% 53
+\BOOKMARK [0][-]{chapter*.238}{Annexes}{figure.caption.237}% 54
+\BOOKMARK [0][-]{appendix.A}{A Liste op\351rateurs Orca}{figure.caption.237}% 55
+\BOOKMARK [0][-]{appendix.B}{B Code C/C++ pour composer de la musique}{figure.caption.237}% 56
+\BOOKMARK [0][-]{appendix.C}{C Signaux MIDI}{figure.caption.237}% 57

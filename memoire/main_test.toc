@@ -1,0 +1,28 @@
+\babel@toc {french}{}
+\contentsline {chapter}{Remerciements}{1}{Doc-Start}%
+\contentsline {chapter}{Préambule}{1}{Doc-Start}%
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {2}\textit {Demoscene}: origine et évolution}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Préambule}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Introduction à la \textit {demo}}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Origines de la \textit {demoscene}}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Évolution de la \textit {demoscene} vers les \textit {demoparties}}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Différents types de compétition}{15}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Techniques visuelles dans la \textit {demoscene}}{19}{section.2.6}%
+\contentsline {chapter}{\numberline {3}La \textit {demoscene} aujourd'hui}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Fascination pour les machines emblématiques}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Vers une automatisation de la création artistique}{21}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Apprécier la profondeur technique des \textit {demos}}{22}{section.3.3}%
+\contentsline {section}{\numberline {3.4}L'esprit d'équipe et la synergie créative}{22}{section.3.4}%
+\contentsline {section}{\numberline {3.5}L'art de l'improvisation numérique : le \textit {livecoding}}{23}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Le \textit {pipeline} graphique}{28}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{28}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Étapes du \textit {pipeline} graphique : du \textit {vertex} au \textit {fragment shader}}{30}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Conclusion}{36}{section.4.3}%
+\contentsline {part}{Bibliographie}{37}{section.4.3}%
+\contentsline {part}{Webographie}{37}{section.4.3}%
+\contentsline {part}{Liste des illustrations}{37}{section.4.3}%
+\contentsline {chapter}{\large Annexes}{37}{chapter*.112}%
+\contentsline {chapter}{\numberline {A}Liste opérateurs Orca}{38}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Code C/C++ pour composer de la musique}{40}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Signaux MIDI}{45}{appendix.C}%

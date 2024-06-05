@@ -17,8 +17,11 @@
             border-radius: 5px;
             max-height: 90vh;
             overflow-y: auto;
-            width: 400px; /* Réduire la largeur de la table des matières */
-            display: none; /* Masquer par défaut */
+            width: 25%; /* Utilisation d'un pourcentage pour s'adapter */
+            min-width: 150px; /* Largeur minimale pour éviter d'être trop petite */
+            max-width: 300px; /* Largeur maximale pour éviter d'être trop large */
+            display: none; /* Masqué par défaut */
+
         }
         .toc a {
             text-decoration: none;
@@ -49,6 +52,10 @@
             border-radius: 5px;
             cursor: pointer;
             z-index: 1000;
+            width: 25%; /* Utilisation d'un pourcentage pour s'adapter */
+            min-width: 150px; /* Largeur minimale pour éviter d'être trop petite */
+            max-width: 300px; /* Largeur maximale pour éviter d'être trop large */
+            text-align: center;
         }
         .toc-toggle:checked + label + .toc {
             display: block; /* Afficher lorsque la case est cochée */

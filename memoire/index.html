@@ -7,6 +7,53 @@
   <title>main_test</title>
   <style>
 
+        .toc {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-height: 90vh;
+            overflow-y: auto;
+            width: 400px; /* Réduire la largeur de la table des matières */
+            display: none; /* Masquer par défaut */
+        }
+        .toc a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .toc .toc-h2 {
+            margin-left: 10px;
+        }
+        .toc .toc-h3 {
+            margin-left: 20px;
+        }
+
+        .toc-toggle {
+            display: none;
+        }
+        .toc-toggle + label {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .toc-toggle:checked + label + .toc {
+            display: block; /* Afficher lorsque la case est cochée */
+        }
+
 
 
         figcaption {
@@ -265,6 +312,16 @@
   type="text/javascript"></script>
 </head>
 <body>
+
+  <input type="checkbox" id="toc-toggle" class="toc-toggle">
+  <label for="toc-toggle">☰ Table des Matières</label>
+
+  <nav class="toc">
+      
+      <div id="toc-content"></div>
+  </nav>
+
+
 <div class="titlepage">
 <div class="center">
 <p><span><strong>Université Paris 8</strong></span><br />
@@ -7000,5 +7057,26 @@ Studios : Katastro. Fi.
   </div>
   </div>
 </section>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const tocContent = document.getElementById('toc-content');
+      const headers = document.querySelectorAll('h1, h2, h3');
+      headers.forEach((header, index) => {
+          const id = `header-${index}`;
+          header.id = id;
+          const link = document.createElement('a');
+          link.href = `#${id}`;
+          link.textContent = header.textContent;
+          link.classList.add(`toc-${header.tagName.toLowerCase()}`);
+          tocContent.appendChild(link);
+      });
+
+      // Assurez-vous que la case est décochée au chargement de la page
+      document.getElementById('toc-toggle').checked = false;
+  });
+</script>
 </body>
 </html>

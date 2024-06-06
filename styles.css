@@ -1,56 +1,39 @@
-/* Styles de base */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+body {
+    font-family: "Trebuchet MS";
 }
-
-/* Header fixe */
-header {
-    position: fixed;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+.menu {
+    display: flex;                /* Transformation en flexbox */
+    padding:0;                    /* Suppression des marges internes */
+    background-color: #2e2e2e;       /* Ajout de la couleur d'arrière-plan */
+    justify-content: space-around;/* Alignements des liens dans le menu */
 }
-
-/* Styles du menu */
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+.menu li {
+    list-style-type: none ;       /* Suppression des puces */
+  
 }
-
-nav ul li {
-    margin: 0 15px;
+.menu a {
+    display:block;                /* Transformation en block */
+    min-width: 120px;             /* Largeur minimale des liens */   
+    
+    margin: 0.5rem;               /* Marges externes */
+    padding: 0.4rem 0;            /* Marges internes */
+    text-align: center;           /* Centrage du texte */   
+    background-color: #2e2e2e;    /* Arrière-plan */
+    color: #e5b567;                  /* Couleur du texte */
+    text-decoration: none;        /* Suppression du soulignement */
+    border: 1px solid #e5b567;       /* Ajout d'une bordure */
+    border-radius: 4px;           /* Arrondis des bordures */
+    
+    transition: all 1s ;          /* Ajout des effets de transition */
 }
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 15px 20px;
-    display: block;
+.menu a.actif {    
+    background-color: #000 ; 
+    color: #e87d3e ;
+    border-color: #b4d273 ;
 }
-
-nav ul li a:hover {
-    background-color: #575757;
-    border-radius: 4px;
-}
-
-/* Styles du contenu principal */
-main {
-    margin-top: 60px; /* Ajuster cette valeur en fonction de la hauteur du header */
-    padding: 20px;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-section h1 {
-    margin-bottom: 10px;
+.menu a:hover,
+.menu a:hover.actif{
+    background-color: #6c99bb;
+    color: #e5b567;
+    border-color: #e5b567;
 }

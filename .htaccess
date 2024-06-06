@@ -1,0 +1,46 @@
+RewriteEngine On
+RewriteRule ^memoire/?$ /memoire/index.html [L]
+
+# Réécriture d'URL (pour le référencement convivial)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>
+
+# Gestion des erreurs personnalisées
+ErrorDocument 404 /404.html
+
+# Interdire l'accès à certains répertoires
+Options -Indexes
+
+# Bloquer l'accès à certains types de fichiers sensibles
+
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# Protéger le fichier .htaccess lui-même
+
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+# Limiter l'accès par adresse IP
+
+<FilesMatch "admin.php">
+    Order deny,allow
+    Deny from all
+    Allow from xxx.xxx.xxx.xxx
+</FilesMatch>
+
+
+
+
+

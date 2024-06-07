@@ -8,4 +8,4 @@ htmlContent+= "<li id=\"loadContentButton\"><a href=\"#test\">Test</a></li>";
 htmlContent+= "<li><a href=\"#contact\">Contact</a></li>";
 htmlContent+= "</ul>";
 htmlContent+= "</nav>";
-document.getElementById('content').innerHTML = htmlContent;
+document.getElementById('menu').innerHTML = htmlContent;

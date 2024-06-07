@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    alert("toc.js");
+    alert("alert(toc.js)");
     const tocContent = document.getElementById('toc-content');
     const headers = document.querySelectorAll('h1, h2, h3');
     headers.forEach((header, index) => {

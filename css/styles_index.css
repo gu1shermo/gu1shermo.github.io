@@ -1,5 +1,8 @@
-body {
-    /*font-family: "Trebuchet MS";*/
+html, body {
+    height: 100%; /* Ensure the body and html take up the full height of the viewport */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #272822;
 }
 
 .menu {
@@ -15,7 +18,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding:0;                    /* Suppression des marges internes */
-    background-color: #2e2e2e;       /* Ajout de la couleur d'arrière-plan */
+    background-color: #272822;       /* Ajout de la couleur d'arrière-plan */
     justify-content: space-around;/* Alignements des liens dans le menu */
     color: #e5b567;
     list-style: none;

@@ -19,7 +19,6 @@ body {
     justify-content: space-around;/* Alignements des liens dans le menu */
     color: #e5b567;
 }
-  }
 .menu li {
     list-style-type: none ;       /* Suppression des puces */
     /*background-color: #e87d3e;*/
@@ -54,5 +53,5 @@ body {
 }
 
 .menu a:visited {
-    color: #F92672;
+    color: #272822;
 }

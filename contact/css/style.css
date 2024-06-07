@@ -8137,7 +8137,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: normal;
-  background: #fafafa;
+  background: #E6DB74;
   color: #666666; }
 
 a {
@@ -8171,7 +8171,7 @@ h1, h2, h3, h4, h5,
   padding-bottom: 0; }
 
 .heading-section {
-  font-size: 28px;
+  font-size: 50px;
   color: #000; }
 
 .img {
@@ -8229,12 +8229,12 @@ textarea.form-control {
       font-weight: 500;
       color: #000; }
     .dbox p a {
-      color: #46b5d1; }
+      color: #66D9EF; }
   .dbox .icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #46b5d1;
+    background: #F92672;
     margin: 0 auto;
     margin-bottom: 20px; }
     .dbox .icon span {
@@ -8266,12 +8266,12 @@ textarea.form-control {
   .btn:hover, .btn:active, .btn:focus {
     outline: none !important; }
   .btn.btn-primary {
-    background: #46b5d1 !important;
-    border-color: #46b5d1 !important;
+    background: #66D9EF !important;
+    border-color: #66D9EF !important;
     color: #fff; }
     .btn.btn-primary:hover, .btn.btn-primary:focus {
-      border-color: #2d9bb7 !important;
-      background: #2d9bb7 !important; }
+      border-color: #A6E22E !important;
+      background: #A6E22E !important; }
 
 .contactForm .label {
   color: #000;

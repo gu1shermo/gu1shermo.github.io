@@ -10,8 +10,10 @@ body {
 }
 .menu li {
     list-style-type: none ;       /* Suppression des puces */
-    background-color: #e87d3e;
+    /*background-color: #e87d3e;*/
 }
+
+
 .menu a {
     display:block;                /* Transformation en block */
     min-width: 120px;             /* Largeur minimale des liens */   
@@ -37,4 +39,8 @@ body {
     background-color: #6c99bb;
     color: #e5b567;
     border-color: #e5b567;
+}
+
+.menu a:visited {
+    color: #eeeeee;
 }

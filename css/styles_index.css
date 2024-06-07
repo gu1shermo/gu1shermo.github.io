@@ -10,7 +10,7 @@ body {
 }
 .menu li {
     list-style-type: none ;       /* Suppression des puces */
-  
+    background-color: #e87d3e;
 }
 .menu a {
     display:block;                /* Transformation en block */

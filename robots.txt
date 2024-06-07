@@ -11,4 +11,4 @@ Disallow: /private/
 Disallow: /secret-page.html
 
 # Indique l'emplacement du fichier sitemap
-Sitemap: https://www.votresite.com/sitemap.xml
+Sitemap: https://www.hrst4.xyz/sitemap.xml

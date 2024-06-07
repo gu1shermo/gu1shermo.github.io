@@ -14,6 +14,14 @@
 	</head>
 
 	<body>
+
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+		emailjs.init("cournet.guillaume@protonmail.com");
+		})();
+	</script>
+
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -127,6 +135,36 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.validate.min.js"></script>
   <script src="js/main.js"></script>
+
+  <!--
+ TEST send mail 
+  -->
+
+  <form id="contact-form">
+	<input type="text" id="name" placeholder="Your Name" required>
+	<input type="email" id="email" placeholder="Your Email" required>
+	<textarea id="message" placeholder="Your Message" required></textarea>
+	<button type="submit">Send Email</button>
+</form>
+
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+	(function() {
+		emailjs.init("YOUR_USER_ID");
+	})();
+
+	document.getElementById('contact-form').addEventListener('submit', function(event) {
+		event.preventDefault();
+
+		// These IDs from the previous steps
+		emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+			.then(function() {
+				console.log('SUCCESS!');
+			}, function(error) {
+				console.log('FAILED...', error);
+			});
+	});
+</script>
 
 	</body>
 </html>

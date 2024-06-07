@@ -1,4 +1,5 @@
 // JavaScript code to include HTML content
+alert("add_menu");
 var htmlContent = "<nav>";
 htmlContent+= "<ul class=\"menu\">";
 htmlContent+= "<li><a href=\"./index.html\">Accueil</a></li>";

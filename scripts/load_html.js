@@ -1,3 +1,5 @@
+alert("load_html");
+
 document.getElementById('loadContentButton').addEventListener('click', function() {
     fetch('content.html')
         .then(response => {

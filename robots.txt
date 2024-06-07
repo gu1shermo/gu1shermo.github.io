@@ -1,0 +1,14 @@
+# Autorise tous les robots d'explorer tout le site
+User-agent: *
+Disallow:
+
+# Bloque l'accès à des dossiers spécifiques
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+
+# Bloque l'accès à un fichier spécifique
+Disallow: /secret-page.html
+
+# Indique l'emplacement du fichier sitemap
+Sitemap: https://www.votresite.com/sitemap.xml

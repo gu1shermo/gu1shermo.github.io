@@ -81,10 +81,11 @@ display: inline-block;
 width: 32%;
 }
 
-html {
-color: #1a1a1a;
-background-color: #fdfdfd;
+.memoire {
+    color: #1a1a1a;
+    background-color: #fdfdfd;
 }
+
 body {
     margin: 0 auto;
     max-width: 56em;

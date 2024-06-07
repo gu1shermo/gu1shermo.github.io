@@ -1,7 +1,5 @@
-alert("load_html");
-
 document.getElementById('loadContentButton').addEventListener('click', function() {
-    fetch('content.html')
+    fetch('./memoire/index.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

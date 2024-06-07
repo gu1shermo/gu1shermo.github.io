@@ -1,13 +1,25 @@
 body {
     /*font-family: "Trebuchet MS";*/
 }
+
 .menu {
-    display: flex;                /* Transformation en flexbox */
+    /*display: flex;*/                /* Transformation en flexbox */
+    /*padding:0;*/                    /* Suppression des marges internes */
+    /*background-color: #2e2e2e*/;       /* Ajout de la couleur d'arrière-plan */
+    /*justify-content: space-around*/;/* Alignements des liens dans le menu */
+    /*color: #e5b567*/;
+    }
+    
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding:0;                    /* Suppression des marges internes */
     background-color: #2e2e2e;       /* Ajout de la couleur d'arrière-plan */
     justify-content: space-around;/* Alignements des liens dans le menu */
     color: #e5b567;
 }
+  }
 .menu li {
     list-style-type: none ;       /* Suppression des puces */
     /*background-color: #e87d3e;*/
@@ -21,8 +33,8 @@ body {
     margin: 0.5rem;               /* Marges externes */
     padding: 0.4rem 0;            /* Marges internes */
     text-align: center;           /* Centrage du texte */   
-    background-color: #2e2e2e;    /* Arrière-plan */
-    color: #e5b567;                  /* Couleur du texte */
+    background-color: #E6DB74;    /* Arrière-plan */
+    color: #F92672;                  /* Couleur du texte */
     text-decoration: none;        /* Suppression du soulignement */
     border: 1px solid #e5b567;       /* Ajout d'une bordure */
     border-radius: 4px;           /* Arrondis des bordures */
@@ -31,16 +43,16 @@ body {
 }
 .menu a.actif {    
     background-color: #000 ; 
-    color: #e87d3e ;
+    color: #F92672 ;
     border-color: #b4d273 ;
 }
 .menu a:hover,
 .menu a:hover.actif{
     background-color: #6c99bb;
-    color: #e5b567;
+    color: #F92672;
     border-color: #e5b567;
 }
 
 .menu a:visited {
-    color: #eeeeee;
+    color: #F92672;
 }

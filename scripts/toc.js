@@ -1,5 +1,4 @@
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
       const tocContent = document.getElementById('toc-content');
       const headers = document.querySelectorAll('h1, h2, h3');
       headers.forEach((header, index) => {
@@ -15,4 +14,3 @@
       // Assurez-vous que la case est décochée au chargement de la page
       document.getElementById('toc-toggle').checked = false;
   });
-</script>
